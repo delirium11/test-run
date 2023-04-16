@@ -1,4 +1,3 @@
-import indexStyle from "./index.css";
 
 function Checker() {
     return (
