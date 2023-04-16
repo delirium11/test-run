@@ -1,3 +1,5 @@
+import indexStyle from "./index.css";
+
 function Checker() {
     return (
         <div className="testing">
