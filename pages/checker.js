@@ -1,3 +1,5 @@
+
+
 export default function Checker() {
 
     return (
@@ -9,6 +11,6 @@ export default function Checker() {
         
         </div>
 
-    );
+    )
     
 }
