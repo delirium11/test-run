@@ -7,7 +7,11 @@ export default function Navbar() {
         <nav className="navbar">
 
             <Link href="/">HOME</Link>
-            <Link href="/checker">CHECKER</Link> 
+            <Link href="/gallery">GALLERY</Link>
+            <Link href="/shop">SHOP</Link>
+            <Link href="/mint">MINT</Link>
+            <Link href="/checker">CHECKER</Link>
+            
 
         </nav>
 
