@@ -12,7 +12,6 @@ export default function Navbar() {
             <Link href="/mint">MINT</Link>
             <Link href="/checker">CHECKER</Link>
             
-
         </nav>
 
     )
