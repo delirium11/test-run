@@ -14,15 +14,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 300px;
+    padding: 20px 100px;
 }
 
-.logo_long {
+.logo_desktop {
     width: 150px;
     cursor: pointer;
 }
 
-.logo_short {
+.logo_mobile {
     display: none;
 }
 
@@ -61,30 +61,44 @@
     padding: 0.25em 0.25em;
 }
 
-.text_content {
+.page_content {
     text-align: center;
     font-family: sans-serif;
+    text-align: center;
     color: #fff434;
+    padding: 10px 0 0 0 ;
+
 }
 
 @media only screen and (max-width: 768px) {
 
     .navbar {
         justify-content: center;
-        padding: 20px 0px;
+        padding: 5px 2px;
     }
 
-    .logo_long {
+    .logo_desktop {
         display: none;
     }
 
-    .logo_short {
+    .logo_mobile {
         display: flex;
-        width: 25px;
+        width: 150px;
+        padding: 5px;
+    }
+
+    .logo_mobile_container {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
     }
 
     .navbar button, li, a {
         font-size: 12px;
+    }
+
+    .home_content {
+        padding: 20px 0; ;
     }
 
 }

@@ -4,11 +4,15 @@ export default function Mint() {
 
     return (
 
-        <div className="text_content">
+        <div className="page_content">
 
-            <h1>MINT PAGE</h1>
-            <p>THIS IS THE MINT PAGE</p>
-        
+            <div className="mint_page_text_content">
+
+                <h1>MINT PAGE</h1>
+                <p>THIS IS THE MINT PAGE</p>
+            
+            </div>
+
         </div>
 
     )
