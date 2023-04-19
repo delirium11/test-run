@@ -15,8 +15,7 @@ export default function Navbar() {
 
                 <li><button><Link href="/">HOME</Link></button></li>
 
-                <li><button><Link href="/checker">CHECKER</Link></button></li>
-
+                
                 <li><button><Link href="/application">APPLICATION</Link></button></li>
 
                 <button><a href="https://twitter.com/LlamaPixNFT" 
