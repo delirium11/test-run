@@ -9,24 +9,25 @@ export default function Navbar() {
 
         <header className="navbar">
 
-            <Link href="/"><img className="logo" src="/images/logo.png" alt="logo"/></Link>
+            <div>
+                
+                <Link href="/"><img className="logo_long" 
+                    src="/images/logo_long.png" alt="logo_long"/></Link>
+
+                <Link href="/"><img className="logo_short" 
+                    src="/images/logo_short.png" alt="logo_short"/></Link>
+
+            </div>
 
             <div>
 
-                <li><button><Link href="/">HOME</Link></button></li>
-
-                
                 <li><button><Link href="/application">APPLICATION</Link></button></li>
 
-                <button><a href="https://twitter.com/LlamaPixNFT" 
+                <button><a  
                     target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faTwitter}/></a></button>
 
-                <button><a href="https://opensea.io/collection/llamapix-genesis" 
-                    target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faSailboat}/></a></button>
-
-                <button><a href="https://medium.com/@llamapix.nft" 
+                <button><a 
                     target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faMedium}/></a></button>
 
