@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #1D1D1D;
+}
+
+@font-face {
+    font-family: fredoka-one;
+    src: url( "/FredokaOne-Regular.ttf" );
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    width: 150px;
+    cursor: pointer;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.nav_links li, a {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff434;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: red;
+}
+
+.socials button {
+	color: #e5ff60;
+}
+
+.socials button:hover{
+    color: red;
+}
+
+.socials button {
+    cursor: pointer;
+    transition: 0.25s;
+    background: none;
+    border: 2px solid;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 0.25em 0.25em;
+}
