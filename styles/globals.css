@@ -70,7 +70,8 @@
 @media only screen and (max-width: 768px) {
 
     .navbar {
-        padding: 20px 20px;
+        justify-content: center;
+        padding: 20px 0px;
     }
 
     .logo_long {
@@ -83,7 +84,7 @@
     }
 
     .navbar button, li, a {
-        font-size: 14px;
+        font-size: 12px;
     }
 
 }
