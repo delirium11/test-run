@@ -28,10 +28,10 @@ export default function Navbar() {
                 <div>
 
                     <li><button><Link href="/checker">CHECKER</Link></button></li>
-
+                    
                     <li><button><Link href="/mint">MINT</Link></button></li>
 
-                    <button><a  
+                    <button><a 
                         target="_blank" rel="noreferrer">
                             <FontAwesomeIcon icon={faTwitter}/></a></button>
 

@@ -81,24 +81,20 @@
         display: none;
     }
 
+    .logo_mobile_container {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+    }
+    
     .logo_mobile {
         display: flex;
         width: 150px;
         padding: 5px;
     }
 
-    .logo_mobile_container {
-        display: flex;
-        justify-content: center;
-        padding: 10px 0;
-    }
-
     .navbar button, li, a {
         font-size: 12px;
-    }
-
-    .home_content {
-        padding: 20px 0; ;
     }
 
 }
