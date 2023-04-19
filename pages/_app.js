@@ -7,7 +7,7 @@ export default function App ({ Component, pageProps }) {
 
         <div>
             
-            <title>PANDAS</title>
+            <title>LLAMAPIX</title>
             <Navbar />
             <Component {...pageProps} />
 

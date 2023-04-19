@@ -10,22 +10,14 @@ export default function Navbar() {
         <header className="navbar">
 
             <Link href="/"><img className="logo" src="/images/logo.png" alt="logo"/></Link>
-            
-            <nav>
 
-                <ul className="nav_links">
+            <div>
 
-                    <li><Link href="/">HOME</Link></li>
-                    <li><Link href="/gallery">GALLERY</Link></li>
-                    <li><Link href="/shop">SHOP</Link></li>
-                    <li><Link href="/mint">MINT</Link></li>
-                    <li><Link href="/checker">CHECKER</Link></li>
+                <li><button><Link href="/">HOME</Link></button></li>
 
-                </ul>
-                
-            </nav>
+                <li><button><Link href="/checker">CHECKER</Link></button></li>
 
-            <div className="socials">
+                <li><button><Link href="/application">APPLICATION</Link></button></li>
 
                 <button><a href="https://twitter.com/LlamaPixNFT" 
                     target="_blank" rel="noreferrer">
@@ -39,9 +31,7 @@ export default function Navbar() {
                     target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faMedium}/></a></button>
 
-                <button><a href="https://discord.gg/5QGXZRxEqn" 
-                    target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faDiscord}/></a></button>
+                <button><a>CONNECT</a></button>
 
             </div>
 
@@ -50,5 +40,3 @@ export default function Navbar() {
     )
 
 }
-
-//<button><a>CONNECT</a></button>

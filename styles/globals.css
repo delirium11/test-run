@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 300px;
 }
 
 .logo {
@@ -22,36 +22,32 @@
     cursor: pointer;
 }
 
-.nav_links li {
+.navbar li {
     display: inline-block;
-    padding: 0px 10px;
 }
 
-.nav_links li, a {
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    color: #fff434;
-}
-
-.nav_links li a {
+.navbar li a {
     transition: all 0.3s ease 0s;
 }
 
-.nav_links li a:hover {
+.navbar li a:hover {
     color: red;
 }
 
-.socials button {
-	color: #e5ff60;
+.navbar button, li, a {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+    text-decoration: none;
+	color: #fff434;
 }
 
-.socials button:hover{
+.navbar button:hover{
     color: red;
 }
 
-.socials button {
+.navbar button {
     cursor: pointer;
     transition: 0.25s;
     background: none;
@@ -59,4 +55,10 @@
     line-height: 1;
     margin: 0.5em;
     padding: 0.25em 0.25em;
+}
+
+.text_content {
+    text-align: center;
+    font-family: sans-serif;
+    color: #fff434;
 }
