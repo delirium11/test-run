@@ -13,11 +13,11 @@ export default function Checker() {
 
     async function file(storage) {
         const chunks = [];
-        for await (const chunk of ipfs.cat(storage)) {chunks.push(chunk);}
+        for await (const chunk of ipfs.cat(storage)) {chunks.push(chunk)}
         return Buffer.concat(chunks).toString().toLowerCase().split(',').map(item => 
             item.substring(2)).map((item, index) => index === 0 ? `0x${item}` : item);
     }
-      
+    
     useEffect(() => {file(storage).then(setList);}, []);
 
     const handleSubmit = (event) => {

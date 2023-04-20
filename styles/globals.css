@@ -123,3 +123,11 @@
     }
 
 }
+
+@media only screen and (min-width: 2550px) {
+    
+    .page_content, .the_navbar{
+        zoom: 150%;
+    }
+
+}
