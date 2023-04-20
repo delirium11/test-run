@@ -10,15 +10,9 @@
     src: url( "/FredokaOne-Regular.ttf" );
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 100px;
-}
-
 .logo_desktop {
     width: 150px;
+    padding-top: 4.2px;
     cursor: pointer;
 }
 
@@ -26,75 +20,106 @@
     display: none;
 }
 
-.navbar li {
-    display: inline-block;
-}
-
-.navbar li a {
-    transition: all 0.3s ease 0s;
-}
-
-.navbar li a:hover {
-    color: red;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 220px;
 }
 
 .navbar button, li, a {
-    text-decoration: none;
-    font-family: sans-serif;
-    font-weight: bolder;
-    font-size: 16px;
-    text-decoration: none;
-    color: #fff434;
-}
-
-.navbar button:hover{
-    color: red;
-}
-
-.navbar button {
     cursor: pointer;
     transition: 0.25s;
     background: none;
-    border: 2px solid;
     line-height: 1;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 12.5px;
+    color: #fff434;
+}
+
+.navbar button {
+    border: 2px solid;
     margin: 0.5em;
-    padding: 0.25em 0.25em;
+    padding: 0.15em 0.15em;
+}
+
+.navbar a:hover, button:hover {
+    color: red;
 }
 
 .page_content {
     text-align: center;
     font-family: sans-serif;
-    text-align: center;
+    font-weight: bold;
     color: #fff434;
-    padding: 10px 0 0 0 ;
+    padding: 10px 0 0 0;
+}
 
+.checker_page_text_content {
+    padding-top: 25px;
+}
+
+.checker_page_text_content form, p {
+    font-size: 30px;
+    padding: 25px 0 25px 0; 
+}
+
+.checker_page_text_content input {
+    text-align: center;
+    width: 650px;
+}
+
+.checker_page_text_content input, button {
+    outline: none;
+    padding: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff434;
+    border: 3px solid;
+}
+
+.checker_page_text_content a:hover, button:hover {
+    transition: 0.25s;
+    cursor: pointer;
+    color: red;
 }
 
 @media only screen and (max-width: 768px) {
 
     .navbar {
         justify-content: center;
-        padding: 5px 2px;
+        padding: 0 0;
     }
 
     .logo_desktop {
         display: none;
     }
-
-    .logo_mobile_container {
-        display: flex;
-        justify-content: center;
-        padding: 10px 0;
-    }
     
     .logo_mobile {
         display: flex;
+        margin: auto;
+        text-align: center;
         width: 150px;
-        padding: 5px;
+        padding: 20px 0 10px;
     }
 
     .navbar button, li, a {
-        font-size: 12px;
+        font-size: 14px;
+    }
+
+    .checker_page_text_content {
+        padding-top: 0;
+    }
+
+    .checker_page_text_content input {
+        text-align: center;
+        width: 250px;
+    }
+    
+    .checker_page_text_content input, form, p, button {
+        font-size: 20px;
     }
 
 }
