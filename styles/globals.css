@@ -58,23 +58,23 @@
 }
 
 .checker_page_text_content {
-    padding-top: 25px;
+    padding-top: 20px;
 }
 
 .checker_page_text_content form, p {
-    font-size: 30px;
+    font-size: 25px;
     padding: 25px 0 25px 0; 
 }
 
 .checker_page_text_content input {
     text-align: center;
-    width: 650px;
+    width: 550px;
 }
 
 .checker_page_text_content input, button {
     outline: none;
     padding: 5px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     color: #fff434;
     border: 3px solid;
