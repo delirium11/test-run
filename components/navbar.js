@@ -25,10 +25,10 @@ export default function Navbar() {
                 setAddress(address);
                 setBalance(balance);
                 setStatus(address.substring(0, 2) + '...' + address.substring(38));
-                //console.log('PROVIDER:', provider);
-                //console.log('SIGNER:', signer);
-                //console.log('ADDRESS:', address);
-                //console.log('BALANCE:', balance);
+                console.log('PROVIDER:', provider);
+                console.log('SIGNER:', signer);
+                console.log('ADDRESS:', address);
+                console.log('BALANCE:', balance);
                 window.ethereum.on('accountsChanged', (accounts) => {
                     (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
                 });                
@@ -49,10 +49,10 @@ export default function Navbar() {
             setAddress(address);
             setBalance(balance);
             setStatus(address.substring(0, 2) + '...' + address.substring(38));
-            //console.log('PROVIDER:', provider);
-            //console.log('SIGNER:', signer);
-            //console.log('ADDRESS:', address);
-            //console.log('BALANCE:', balance);
+            console.log('PROVIDER:', provider);
+            console.log('SIGNER:', signer);
+            console.log('ADDRESS:', address);
+            console.log('BALANCE:', balance);
         } else {
             alert('METAMASK NOT DETECTED')
         }
