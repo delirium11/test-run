@@ -17,6 +17,7 @@ export default function Navbar() {
         async function fetchWallet() {
             if (window.ethereum && window.ethereum.selectedAddress) {
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const accounts = await provider.listAccounts();
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
                 const balance = await provider.getBalance(address);
@@ -29,8 +30,12 @@ export default function Navbar() {
                 console.log('SIGNER:', signer);
                 console.log('ADDRESS:', address);
                 console.log('BALANCE:', balance);
+                if (accounts.length > 0) {
+                    setAddress(accounts[0]);
+                }
                 window.ethereum.on('accountsChanged', (accounts) => {
-                    (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
+                    setAddress(accounts[0]);
+                    setStatus(address.substring(0, 2) + '...' + address.substring(38));
                 });                
             }
         }
