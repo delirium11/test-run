@@ -92,7 +92,7 @@ export default function Navbar() {
                         target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button onClick={connectWallet}><a>{status}</a></button>
+                    <button key={status} onClick={connectWallet}><a>{status}</a></button>
                     
                 </div>
 
