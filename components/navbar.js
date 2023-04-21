@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ethers } from 'ethers';
+import Web3 from "web3";
+
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium, faDiscord } from "@fortawesome/free-brands-svg-icons";
@@ -12,54 +14,40 @@ export default function Navbar() {
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
+
+    const [ walletAddress, setWalletAddress ] = useState("");
+
             
     useEffect(() => {
-        async function fetchWallet() {
-            if (window.ethereum && window.ethereum.selectedAddress) {
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const accounts = await provider.listAccounts();
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = await provider.getBalance(address);
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
-                setStatus(address.substring(0, 2) + '...' + address.substring(38));
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
-                console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
-                if (accounts.length > 0) {
-                    setAddress(accounts[0]);
+        async function connectToWeb3() {
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({
+                        method: 'eth_accounts',
+                    });
+                    if (accounts.length > 0) {
+                        setWalletAddress(accounts[0]);
+                    }
+                    window.ethereum.on('accountsChanged', (newAccounts) => {
+                        setWalletAddress(newAccounts[0]);
+                    });
+                    const web3 = new Web3(window.ethereum);
+                } catch (error) {
+                console.error(error);
                 }
-                window.ethereum.on('accountsChanged', (accounts) => {
-                    setAddress(accounts[0]);
-                    (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
-                });                
+            } else {
+                console.error('Web3 not found');
             }
         }
-        fetchWallet();
+        connectToWeb3();
     }, []);
     
     async function connectWallet() {
-        if (window.ethereum) {
+        try {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            const address = await signer.getAddress();
-            const balance = await provider.getBalance(address);
-            setProvider(provider);
-            setSigner(signer);
-            setAddress(address);
-            setBalance(balance);
-            setStatus(address.substring(0, 2) + '...' + address.substring(38));
-            console.log('PROVIDER:', provider);
-            console.log('SIGNER:', signer);
-            console.log('ADDRESS:', address);
-            console.log('BALANCE:', balance);
-        } else {
-            alert('METAMASK NOT DETECTED')
+            const web3 = new Web3(window.ethereum);
+        } catch (error) {
+            console.error(error);
         }
     }
 
@@ -101,7 +89,11 @@ export default function Navbar() {
                         target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button onClick={connectWallet}><a>{status}</a></button>
+                    <div className="connect-button-position" onClick={connectWallet}>
+                    {(walletAddress && walletAddress.length > 0) ? <button className="connect-button">
+                    {walletAddress.substring(0, 2)}...{walletAddress.substring(38)}</button> : 
+                    <button className="connect-button">Connect</button>}
+                </div>
                     
                 </div>
 
