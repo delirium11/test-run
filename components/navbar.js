@@ -26,10 +26,6 @@ export default function Navbar() {
                 setAddress(accounts[0]);
                 setBalance(balance);
                 setStatus(address.substring(38));
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
-                console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
                 if (accounts.length > 0) {
                     setAddress(accounts[0]);
                 }
@@ -55,10 +51,6 @@ export default function Navbar() {
             setAddress(address);
             setBalance(balance);
             setStatus(address.substring(38));
-            console.log('PROVIDER:', provider);
-            console.log('SIGNER:', signer);
-            console.log('ADDRESS:', address);
-            console.log('BALANCE:', balance);
             (accounts.length > 0) && (setAddress(accounts[0]));
             window.ethereum.on('accountsChanged', (accounts) => {
                 (accounts.length === 0) ? setStatus('CONNECT') : 
@@ -68,7 +60,6 @@ export default function Navbar() {
             alert('METAMASK NOT DETECTED')
         }
     }
-
     return (
 
         <div className="the_navbar">
@@ -107,7 +98,11 @@ export default function Navbar() {
                         target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button onClick={connectWallet}><a>{status}</a></button>
+                    <div onClick={connectWallet}><a>
+                        {(address && address.length > 0) ? 
+                        <button> {address.substring(38)} </button> : 
+                        <button>CONNECT</button>}</a>
+                    </div>
                     
                 </div>
 
