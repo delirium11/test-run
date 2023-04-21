@@ -27,6 +27,9 @@ export default function Navbar() {
         console.log('SIGNER:', signer);
         console.log('ADDRESS:', address);
         console.log('BALANCE:', balance);
+        window.ethereum.on('accountsChanged', async (accounts) => {
+            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
+        });
     };
 
     async function chainConnection() {
@@ -54,6 +57,9 @@ export default function Navbar() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
             chainConnection();
+            window.ethereum.on('accountsChanged', async (accounts) => {
+                (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
+            });
         } else {
             alert('METAMASK NOT DETECTED')
         }
