@@ -30,8 +30,7 @@ export default function Navbar() {
             console.log('BALANCE:', balance);
             (address != null) ? setAddress(address) : null;
             window.ethereum.on('accountsChanged', (accounts) => {
-                setAddress(accounts[0]);
-                (accounts.length === 0) ? setStatus('CONNECT') : (fetch());
+                setAddress(address);
             });                
         }
     }
