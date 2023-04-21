@@ -23,7 +23,7 @@ export default function Navbar() {
                 const balance = await provider.getBalance(address);
                 setProvider(provider);
                 setSigner(signer);
-                setAddress(address);
+                setAddress(accounts[0]);
                 setBalance(balance);
                 setStatus(address.substring(38));
                 console.log('PROVIDER:', provider);
