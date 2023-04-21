@@ -35,7 +35,7 @@ export default function Navbar() {
                 }
                 window.ethereum.on('accountsChanged', (accounts) => {
                     setAddress(accounts[0]);
-                    setStatus(address.substring(0, 2) + '...' + address.substring(38));
+                    (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
                 });                
             }
         }
