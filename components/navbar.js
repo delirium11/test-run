@@ -43,7 +43,12 @@ export default function Navbar() {
         });
     }
 
-    useEffect(() => {reConnect()}, []);
+    useEffect(() => {
+        reConnect();
+        window.ethereum.on('accountsChanged', async (accounts) => {
+            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
+        });
+    }, []);
 
     async function connectWallet() {
         if (window.ethereum) {
@@ -92,7 +97,7 @@ export default function Navbar() {
                         target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button key={status} onClick={connectWallet}><a>{status}</a></button>
+                    <button onClick={connectWallet}><a>{status}</a></button>
                     
                 </div>
 
