@@ -13,7 +13,7 @@ export default function Navbar() {
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
 
-    async function chainConnection() {
+    async function fetchData() {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
@@ -27,19 +27,20 @@ export default function Navbar() {
         console.log('SIGNER:', signer);
         console.log('ADDRESS:', address);
         console.log('BALANCE:', balance);
-        window.ethereum.on('accountsChanged', (accounts) => {
-            (accounts.length === 0) ? setStatus('CONNECT') : null;
+    };
+
+    async function chainConnection() {
+        await fetchData();
+        window.ethereum.on('accountsChanged', async (accounts) => {
+            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
         });
     }
+    
+    async function reConnect() {
+        (window.ethereum && window.ethereum.selectedAddress) ? (chainConnection()) : null;
+    }
 
-    useEffect(() => {
-        async function reConnect() {
-            if (window.ethereum && window.ethereum.selectedAddress) {
-                chainConnection();
-            }
-        }
-        reConnect();
-    }, []);
+    useEffect(() => {reConnect()}, []);
 
     async function connectWallet() {
         if (window.ethereum) {
