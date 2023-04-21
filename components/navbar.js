@@ -15,41 +15,29 @@ export default function Navbar() {
 
     async function fetchWallet() {
         if (window.ethereum && window.ethereum.selectedAddress) {
-            try {
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = await provider.getBalance(address);
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
-                setStatus(address.substring(38));
-                if (accounts.length > 0) {
-                    setAddress(accounts[0])
-                }
-                window.ethereum.on('accountsChanged', (newAccounts) => {
-                    setAddress(newAccounts[0]);
-                });
-            } catch (error) {
-                console.error(error);
-            }
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            const signer = provider.getSigner();
+            const address = await signer.getAddress();
+            const balance = await provider.getBalance(address);
+            setProvider(provider);
+            setSigner(signer);
+            setAddress(address);
+            setBalance(balance);
+            setStatus(address.substring(38));
+            console.log('PROVIDER:', provider);
+            console.log('SIGNER:', signer);
+            console.log('ADDRESS:', address);
+            console.log('BALANCE:', balance);
+            (accounts.length > 0) && (setAddress(accounts[0]));
+            window.ethereum.on('accountsChanged', (accounts) => {
+                (accounts.length === 0) ? setStatus('CONNECT') : 
+                (fetchWallet(), setStatus(address.substring(38)));
+            });
         }
     }
 
-    console.log('ADDRESS:', address);
-
-
-    useEffect(() => {
-
-        try {
-            fetchWallet() 
-        } catch (error) {
-            console.error(error);
-        }
-
-    }, []);
+    useEffect(() => { fetchWallet() }, []);
     
     async function connectWallet() {
         if (window.ethereum) {
