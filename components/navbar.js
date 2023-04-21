@@ -1,10 +1,38 @@
 import Link from 'next/link';
+import { ethers } from 'ethers';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
 import { faSailboat } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter, faMedium, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 export default function Navbar() {
+
+    const [ provider, setProvider ] = useState(null);
+    const [ signer, setSigner ] = useState(null);
+    const [ address, setAddress ] = useState(null);
+    const [ balance, setBalance ] = useState(null);
     
+    async function connectWallet() {
+        if (window.ethereum) {
+            try {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                setProvider(provider);
+                const signer = provider.getSigner();
+                setSigner(signer);
+                const address = await signer.getAddress();
+                setAddress(address);
+                const balance = await provider.getBalance(address);
+                setBalance(balance);
+                console.log('Address:', address);
+            } catch (err) {
+                console.error('FAILED TO CONNECT:', err);
+            }
+        } else {
+            alert('METAMASK NOT DETECTED')
+        }
+    }
+
     return (
 
         <div className="the_navbar">
@@ -43,7 +71,7 @@ export default function Navbar() {
                         target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button><a>CONNECT</a></button>
+                    <button onClick={connectWallet}><a>CONNECT</a></button>
 
                 </div>
 
