@@ -27,9 +27,6 @@ export default function Navbar() {
         console.log('SIGNER:', signer);
         console.log('ADDRESS:', address);
         console.log('BALANCE:', balance);
-        window.ethereum.on('accountsChanged', async (accounts) => {
-            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
-        });
     };
 
     async function chainConnection() {
@@ -38,20 +35,10 @@ export default function Navbar() {
             (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
         });
     }
-    
-    async function reConnect() {
-        (window.ethereum && window.ethereum.selectedAddress) ? (chainConnection()) : null;
-        window.ethereum.on('accountsChanged', async (accounts) => {
-            if (accounts.length === 0) {
-                setStatus('CONNECT')
-            } else {
-                await fetchData();
-                setStatus(address.substring(0, 2) + '...' + address.substring(38));
-            }
-        });
-    }
 
-    useEffect(() => {reConnect()}, []);
+    useEffect(() => {
+        (window.ethereum && window.ethereum.selectedAddress) ? (chainConnection()) : null;
+    }, []);
 
     async function connectWallet() {
         if (window.ethereum) {
