@@ -8,26 +8,45 @@ import { faSailboat } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
 
     const [ provider, setProvider ] = useState(null);
-    const [ signer, setSigner ] = useState(null);
     const [ address, setAddress ] = useState(null);
     const [ balance, setBalance ] = useState(null);
-    
+    const [ signer, setSigner ] = useState(null);
+    const [ status, setStatus ] = useState('CONNECT');
+
+    useEffect(() => {
+        async function reConnect() {
+            if (window.ethereum && window.ethereum.selectedAddress) {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const address = await signer.getAddress();
+                const balance = await provider.getBalance(address);
+                setProvider(provider);
+                setSigner(signer);
+                setAddress(address);
+                setBalance(balance);
+                setStatus(address.substring(0, 2) + '...' + address.substring(38));
+                console.log('ADDRESS:', address);
+            }
+        }
+        reConnect();
+    }, []);
+
     async function connectWallet() {
         if (window.ethereum) {
-            try {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                setProvider(provider);
-                const signer = provider.getSigner();
-                setSigner(signer);
-                const address = await signer.getAddress();
-                setAddress(address);
-                const balance = await provider.getBalance(address);
-                setBalance(balance);
-                console.log('Address:', address);
-            } catch (err) {
-                console.error('FAILED TO CONNECT:', err);
-            }
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const address = await signer.getAddress();
+            const balance = await provider.getBalance(address);
+            setProvider(provider);
+            setSigner(signer);
+            setAddress(address);
+            setBalance(balance);
+            setStatus(address.substring(0, 2) + '...' + address.substring(38));
+            console.log('ADDRESS:', address);
+            window.ethereum.on('accountsChanged', (accounts) => {
+                (accounts.length === 0) ? setStatus('CONNECT') : null;
+            });
         } else {
             alert('METAMASK NOT DETECTED')
         }
@@ -60,18 +79,19 @@ export default function Navbar() {
                     <button><Link href="/mint">MINT</Link></button>
 
                     <button><a 
-                        target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faTwitter}/></a></button>
+                        target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faTwitter}/></a></button>
 
                     <button><a 
-                        target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faMedium}/></a></button>
-
+                        target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faMedium}/></a></button>
+                        
                     <button><a 
-                        target="_blank" rel="noreferrer">
-                        <FontAwesomeIcon icon={faSailboat}/></a></button>
+                        target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button onClick={connectWallet}><a>CONNECT</a></button>
+                    <button onClick={connectWallet}><a>{status}</a></button>
+                    
 
                 </div>
 
