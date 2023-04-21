@@ -57,9 +57,7 @@ export default function Navbar() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
             chainConnection();
-            window.ethereum.on('accountsChanged', async (accounts) => {
-                (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
-            });
+
         } else {
             alert('METAMASK NOT DETECTED')
         }
