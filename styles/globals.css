@@ -97,10 +97,13 @@
         display: none;
     }
     
+    .logo_mobile_container {
+        display: flex;
+        justify-content: center;
+    }
+
     .logo_mobile {
         display: flex;
-        margin: auto;
-        text-align: center;
         width: 150px;
         padding: 20px 0 10px;
     }

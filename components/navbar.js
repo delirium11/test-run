@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ethers } from 'ethers';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faMedium, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { faSailboat } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
@@ -13,19 +13,29 @@ export default function Navbar() {
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
 
+    async function chainConnection() {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        const balance = await provider.getBalance(address);
+        setProvider(provider);
+        setSigner(signer);
+        setAddress(address);
+        setBalance(balance);
+        setStatus(address.substring(0, 2) + '...' + address.substring(38));
+        console.log('PROVIDER:', provider);
+        console.log('SIGNER:', signer);
+        console.log('ADDRESS:', address);
+        console.log('BALANCE:', balance);
+        window.ethereum.on('accountsChanged', (accounts) => {
+            (accounts.length === 0) ? setStatus('CONNECT') : null;
+        });
+    }
+
     useEffect(() => {
         async function reConnect() {
             if (window.ethereum && window.ethereum.selectedAddress) {
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = await provider.getBalance(address);
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
-                setStatus(address.substring(0, 2) + '...' + address.substring(38));
-                console.log('ADDRESS:', address);
+                chainConnection();
             }
         }
         reConnect();
@@ -34,19 +44,7 @@ export default function Navbar() {
     async function connectWallet() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            const address = await signer.getAddress();
-            const balance = await provider.getBalance(address);
-            setProvider(provider);
-            setSigner(signer);
-            setAddress(address);
-            setBalance(balance);
-            setStatus(address.substring(0, 2) + '...' + address.substring(38));
-            console.log('ADDRESS:', address);
-            window.ethereum.on('accountsChanged', (accounts) => {
-                (accounts.length === 0) ? setStatus('CONNECT') : null;
-            });
+            chainConnection();
         } else {
             alert('METAMASK NOT DETECTED')
         }
@@ -56,7 +54,7 @@ export default function Navbar() {
 
         <div className="the_navbar">
 
-            <div>
+            <div className="logo_mobile_container">
 
                 <Link href="/"><img className='logo_mobile' 
                     src="/images/logo_long.png" alt="logo_long"/></Link>
@@ -92,7 +90,6 @@ export default function Navbar() {
 
                     <button onClick={connectWallet}><a>{status}</a></button>
                     
-
                 </div>
 
             </div>
