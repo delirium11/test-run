@@ -42,24 +42,21 @@ export default function Navbar() {
     async function reConnect() {
         (window.ethereum && window.ethereum.selectedAddress) ? (chainConnection()) : null;
         window.ethereum.on('accountsChanged', async (accounts) => {
-            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
+            if (accounts.length === 0) {
+                setStatus('CONNECT')
+            } else {
+                await fetchData();
+                setStatus(address.substring(0, 2) + '...' + address.substring(38));
+            }
         });
     }
 
-    useEffect(() => {
-        reConnect();
-        window.ethereum.on('accountsChanged', async (accounts) => {
-            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
-        });
-    }, []);
+    useEffect(() => {reConnect()}, []);
 
     async function connectWallet() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
             chainConnection();
-            window.ethereum.on('accountsChanged', async (accounts) => {
-                (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
-            });
         } else {
             alert('METAMASK NOT DETECTED')
         }
