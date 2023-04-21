@@ -36,6 +36,9 @@ export default function Navbar() {
         async function reConnect() {
             if (window.ethereum && window.ethereum.selectedAddress) {
                 chainConnection();
+                window.ethereum.on('accountsChanged', (accounts) => {
+                    (accounts.length === 0) ? setStatus('CONNECT') : null;
+                });
             }
         }
         reConnect();
@@ -45,6 +48,9 @@ export default function Navbar() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
             chainConnection();
+            window.ethereum.on('accountsChanged', (accounts) => {
+                (accounts.length === 0) ? setStatus('CONNECT') : null;
+            });
         } else {
             alert('METAMASK NOT DETECTED')
         }
