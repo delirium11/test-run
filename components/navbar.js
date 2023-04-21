@@ -13,8 +13,36 @@ export default function Navbar() {
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
 
-    async function fetchWallet() {
-        if (window.ethereum && window.ethereum.selectedAddress) {
+    useEffect(() => { 
+        async function fetchWallet() {
+            if (window.ethereum && window.ethereum.selectedAddress) {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                const signer = provider.getSigner();
+                const address = await signer.getAddress();
+                const balance = await provider.getBalance(address);
+                setProvider(provider);
+                setSigner(signer);
+                setAddress(address);
+                setBalance(balance);
+                setStatus(address.substring(38));
+                console.log('PROVIDER:', provider);
+                console.log('SIGNER:', signer);
+                console.log('ADDRESS:', address);
+                console.log('BALANCE:', balance);
+                (accounts.length > 0) && (setAddress(accounts[0]));
+                window.ethereum.on('accountsChanged', (accounts) => {
+                    (accounts.length === 0) ? setStatus('CONNECT') : 
+                    (fetchWallet(), setStatus(address.substring(38)));
+                });
+            }
+        }
+        fetchWallet();
+    }, []);
+    
+    async function connectWallet() {
+        if (window.ethereum) {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const accounts = await window.ethereum.request({ method: 'eth_accounts' });
             const signer = provider.getSigner();
@@ -34,15 +62,6 @@ export default function Navbar() {
                 (accounts.length === 0) ? setStatus('CONNECT') : 
                 (fetchWallet(), setStatus(address.substring(38)));
             });
-        }
-    }
-
-    useEffect(() => { fetchWallet() }, []);
-    
-    async function connectWallet() {
-        if (window.ethereum) {
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            fetchWallet();
         } else {
             alert('METAMASK NOT DETECTED')
         }
