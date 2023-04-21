@@ -30,7 +30,9 @@ export default function Navbar() {
                 console.log('SIGNER:', signer);
                 console.log('ADDRESS:', address);
                 console.log('BALANCE:', balance);
-                (accounts.length > 0) && (setAddress(accounts[0]));
+                if (accounts.length > 0) {
+                    setAddress(accounts[0]);
+                }
                 window.ethereum.on('accountsChanged', (accounts) => {
                     (accounts.length === 0) ? setStatus('CONNECT') : 
                     (fetchWallet(), setStatus(address.substring(38)));
