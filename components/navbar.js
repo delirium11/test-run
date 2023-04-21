@@ -12,38 +12,47 @@ export default function Navbar() {
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
-
-    async function fetchData() {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        const balance = await provider.getBalance(address);
-        setProvider(provider);
-        setSigner(signer);
-        setAddress(address);
-        setBalance(balance);
-        setStatus(address.substring(0, 2) + '...' + address.substring(38));
-        console.log('PROVIDER:', provider);
-        console.log('SIGNER:', signer);
-        console.log('ADDRESS:', address);
-        console.log('BALANCE:', balance);
-    };
-
-    async function chainConnection() {
-        await fetchData();
-        window.ethereum.on('accountsChanged', async (accounts) => {
-            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
-        });
-    }
-
+            
     useEffect(() => {
-        (window.ethereum && window.ethereum.selectedAddress) ? (chainConnection()) : null;
+        async function fetchWallet() {
+            if (window.ethereum && window.ethereum.selectedAddress) {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const address = await signer.getAddress();
+                const balance = await provider.getBalance(address);
+                setProvider(provider);
+                setSigner(signer);
+                setAddress(address);
+                setBalance(balance);
+                setStatus(address.substring(0, 2) + '...' + address.substring(38));
+                //console.log('PROVIDER:', provider);
+                //console.log('SIGNER:', signer);
+                //console.log('ADDRESS:', address);
+                //console.log('BALANCE:', balance);
+                window.ethereum.on('accountsChanged', (accounts) => {
+                    (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
+                });                
+            }
+        }
+        fetchWallet();
     }, []);
-
+    
     async function connectWallet() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
-            chainConnection();
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const address = await signer.getAddress();
+            const balance = await provider.getBalance(address);
+            setProvider(provider);
+            setSigner(signer);
+            setAddress(address);
+            setBalance(balance);
+            setStatus(address.substring(0, 2) + '...' + address.substring(38));
+            //console.log('PROVIDER:', provider);
+            //console.log('SIGNER:', signer);
+            //console.log('ADDRESS:', address);
+            //console.log('BALANCE:', balance);
         } else {
             alert('METAMASK NOT DETECTED')
         }
