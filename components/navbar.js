@@ -38,6 +38,9 @@ export default function Navbar() {
     
     async function reConnect() {
         (window.ethereum && window.ethereum.selectedAddress) ? (chainConnection()) : null;
+        window.ethereum.on('accountsChanged', async (accounts) => {
+            (accounts.length === 0) ? setStatus('CONNECT') : (await fetchData());
+        });
     }
 
     useEffect(() => {reConnect()}, []);
