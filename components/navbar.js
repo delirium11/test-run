@@ -17,6 +17,7 @@ export default function Navbar() {
     useEffect(() => { 
         async function updateWallet() {
             if (window.ethereum && window.ethereum.selectedAddress) {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
                 fetchWallet();
             }
         }
