@@ -9,6 +9,7 @@ export default function Checker() {
     const [ newList, setList ] = useState([]);
     const [ wallet, setWallet] = useState ("");
     const [ status, setStatus] = useState("");
+    const [ tree, setTree] = useState(null);
     const [ proof, setProof] = useState(null);
     
     const bufToHex = x => "0x" + x.toString("hex");
@@ -22,7 +23,8 @@ export default function Checker() {
             const temp = Buffer.concat(chunks).toString().toLowerCase().split(',').map(item => 
                 item.substring(2)).map((item, index) => index === 0 ? `0x${item}` : item);
             setList(temp); 
-
+            setTree(new MerkleTree(temp.map((x) => 
+                keccak256(x)), keccak256, { sortPairs: true }));
         }
         file(storage);
     }, []);
@@ -35,6 +37,8 @@ export default function Checker() {
             setStatus("YOU ARE WHITELISTED!") : 
             setStatus("YOU ARE NOT WHITELISTED!");
         
+        console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)))
+        setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
     }
 
     return (
