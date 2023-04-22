@@ -16,7 +16,8 @@ export default function Navbar() {
     
     useEffect(() => { 
         async function fetchWallet() {
-            if (!window.ethereum) {
+            if (window.ethereum.selectedAddress) {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
