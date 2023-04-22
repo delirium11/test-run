@@ -46,7 +46,7 @@ export default function Checker() {
             await navigator.clipboard.writeText(proof);
             setCopied(true);
         } catch(error) {
-            alert(error);
+            await navigator.clipboard.writeText(proof);
         }
     }
 
@@ -70,7 +70,7 @@ export default function Checker() {
                 <p>{status}</p>
 
                 {whitelisted ? <><button onClick={copyToClipboard}>
-                    CLICK TO COPY YOUR MERKLEPROOF</button> 
+                    COPY YOUR MERKLEPROOF</button> 
                     {copied ? <p>COPIED</p> : <></>}</> : <></>}
 
             </div> 

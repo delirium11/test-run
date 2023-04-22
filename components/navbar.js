@@ -26,7 +26,7 @@ export default function Navbar() {
                 setSigner(signer);
                 setAddress(address);
                 setBalance(balance);
-                setStatus('0x' + address.substring(38));
+                setStatus('0x' + address.substring(38).toUpperCase());
                 console.log('PROVIDER:', provider);
                 console.log('SIGNER:', signer);
                 console.log('ADDRESS:', address);
