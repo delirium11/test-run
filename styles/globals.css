@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 220px;
+    padding: 20px 220px 0 220px;
 }
 
 .navbar button, li, a {
@@ -54,16 +54,11 @@
     font-family: sans-serif;
     font-weight: bold;
     color: #fff434;
-    padding: 10px 0 0 0;
-}
-
-.checker_page_content {
-    padding-top: 20px;
 }
 
 .checker_page_content form, p {
+    padding: 25px 0 25px 0;
     font-size: 25px;
-    padding: 25px 0 25px 0; 
 }
 
 .checker_page_content input {
@@ -84,6 +79,11 @@
     transition: 0.25s;
     cursor: pointer;
     color: red;
+}
+
+.description_container {
+    margin: 0 30% 0 30%;
+    font-size: 20px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -112,10 +112,6 @@
         font-size: 14px;
     }
 
-    .checker_page_content {
-        padding-top: 0;
-    }
-
     .checker_page_content input {
         text-align: center;
         width: 250px;
@@ -123,6 +119,10 @@
     
     .checker_page_content input, form, p, button {
         font-size: 20px;
+    }
+
+    .description_container {
+        margin: 0 15% 0 15%;
     }
 
 }

@@ -55,9 +55,14 @@ export default function Checker() {
         <div className="page_content">
 
             <div className="checker_page_content">
-
+                
                 <form id="checker_form" onSubmit={handleSubmit}>
-                    
+
+                    <p className="description_container">
+                    If you want to mint from the contract directly 
+                    you can copy your merkle proof from this page. 
+                    Make sure you enter the right wallet address.</p>
+
                     <p>ENTER YOUR WALLET</p>
                     
                     <input type="text" value={wallet} 
