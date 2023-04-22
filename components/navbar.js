@@ -7,9 +7,8 @@ import { faSailboat } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
 
-    const [ show, setShow ] = useState(true);
     const [ provider, setProvider ] = useState(null);
-    const [ address, setAddress ] = useState('');
+    const [ address, setAddress ] = useState(null);
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
@@ -21,31 +20,30 @@ export default function Navbar() {
             const signer = provider.getSigner();
             const address = await signer.getAddress();
             const balance = await provider.getBalance(address);
-            setProvider(provider);
-            setSigner(signer);
-            setAddress(address);
-            setBalance(balance);
-            setStatus(address.substring(38));
-            console.log('PROVIDER:', provider);
-            console.log('SIGNER:', signer);
-            console.log('ADDRESS:', address);
-            console.log('BALANCE:', balance);
-            (accounts.length > 0) ? (setAddress(accounts[0])) : null;
             window.ethereum.on('accountsChanged', (accounts) => {
                 (accounts.length === 0) ? setStatus('CONNECT') : 
                 (fetchWallet(), setStatus(address.substring(38)));
             });
+            return { provider, signer, address, balance };
         }
     }
 
-    useEffect(() => {
-        console.log('UPDATED PROVIDER:', provider);
-        console.log('UPDATED SIGNER:', signer);
-        console.log('UPDATED ADDRESS:', address);
-        console.log('UPDATED BALANCE:', balance);
-    }, [provider, signer, address, balance]);
-
-    useEffect(() => { fetchWallet() }, []);
+    useEffect(() => { 
+        (async () => {
+            const data = await fetchWallet();
+            if (data) {
+                setProvider(data.provider);
+                setSigner(data.signer);
+                setAddress(data.address);
+                setBalance(data.balance);
+                setStatus(data.address.substring(38));
+                console.log('PROVIDER:', data.provider);
+                console.log('SIGNER:', data.signer);
+                console.log('ADDRESS:', data.address);
+                console.log('BALANCE:', data.balance);
+            }
+        })();
+    }, []);
     
     async function connectWallet() {
         if (window.ethereum) {
