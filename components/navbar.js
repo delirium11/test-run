@@ -27,16 +27,16 @@ export default function Navbar() {
                 setAddress(address);
                 setBalance(balance);
                 setStatus('0x' + address.substring(38));
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
+                //console.log('PROVIDER:', provider);
+                //console.log('SIGNER:', signer);
                 console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
+                //console.log('BALANCE:', balance);
                 window.ethereum.on('accountsChanged', (accounts) => {
                     (accounts.length === 0) ? setStatus('CONNECT') : 
                     (fetchWallet(), setStatus(address.substring(38)));
                 });
             } catch (error) {
-                console.log('CONNECT TO METAMASK');
+                console.log('CONNECT WITH METAMASK');
             }
         }
     }
