@@ -38,6 +38,13 @@ export default function Navbar() {
         }
     }
 
+    useEffect(() => {
+        console.log('UPDATED PROVIDER:', provider);
+        console.log('UPDATED SIGNER:', signer);
+        console.log('UPDATED ADDRESS:', address);
+        console.log('UPDATED BALANCE:', balance);
+    }, [provider, signer, address, balance]);
+
     useEffect(() => { fetchWallet() }, []);
     
     async function connectWallet() {
