@@ -46,7 +46,7 @@ export default function Checker() {
             await navigator.clipboard.writeText(proof);
             setCopied(true);
         } catch(error) {
-            await navigator.clipboard.writeText(proof);
+            alert('BROWSER DOES NOT SUPPORT COPY TO CLIPBOARD' );
         }
     }
 
