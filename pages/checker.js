@@ -42,7 +42,7 @@ export default function Checker() {
     }
 
     async function copyToClipboard() {
-        if (window.location.origin !== 'https://www.delirium11.xyz/checker') {
+        if (window.location.origin !== 'https://www.delirium11.xyz/') {
             return;
         }
         try{
