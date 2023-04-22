@@ -16,25 +16,28 @@ export default function Navbar() {
     
     useEffect(() => { 
         async function fetchWallet() {
-            if (window.ethereum.selectedAddress) {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = await provider.getBalance(address);
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
-                setStatus('0x' + address.substring(38));
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
-                console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
-                window.ethereum.on('accountsChanged', (accounts) => {
-                    (accounts.length === 0) ? setStatus('CONNECT') : 
-                    (fetchWallet(), setStatus(address.substring(38)));
-                });
+            if (window.ethereum) {
+                try{
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = provider.getSigner();
+                    const address = await signer.getAddress();
+                    const balance = await provider.getBalance(address);
+                    setProvider(provider);
+                    setSigner(signer);
+                    setAddress(address);
+                    setBalance(balance);
+                    setStatus('0x' + address.substring(38));
+                    console.log('PROVIDER:', provider);
+                    console.log('SIGNER:', signer);
+                    console.log('ADDRESS:', address);
+                    console.log('BALANCE:', balance);
+                    window.ethereum.on('accountsChanged', (accounts) => {
+                        (accounts.length === 0) ? setStatus('CONNECT') : 
+                        (fetchWallet(), setStatus(address.substring(38)));
+                    });
+                } catch (error) {
+                    console.log('CONNECT TO METAMASK');
+                }
             }
         }
         fetchWallet(); 
