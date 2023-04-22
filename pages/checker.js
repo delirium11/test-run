@@ -36,14 +36,18 @@ export default function Checker() {
         newList.includes(wallet.toLowerCase()) ? 
             (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) :
             (setStatus("YOU ARE NOT WHITELISTED!"), setWhitelisted(false), setCopied(false));
-            
+
         console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
         setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
     }
 
     async function copyToClipboard() {
-        await navigator.clipboard.writeText(proof);
-        setCopied(true);
+        try{
+            await navigator.clipboard.writeText(proof);
+            setCopied(true);
+        } catch(error) {
+            alert(error);
+        }
     }
 
     return (
