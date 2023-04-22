@@ -7,8 +7,6 @@ import { faSailboat } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
 
-    
-
     const [ show, setShow ] = useState(true);
     const [ provider, setProvider ] = useState(null);
     const [ address, setAddress ] = useState(null);
@@ -17,31 +15,43 @@ export default function Navbar() {
     const [ status, setStatus ] = useState('CONNECT');
     
     useEffect(() => { 
-        async function fetchWallet() {
-            if (window.ethereum) {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
-                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = await provider.getBalance(address);
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
-                setStatus('0x' + address.substring(38));
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
-                console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
-                window.ethereum.on('accountsChanged', (accounts) => {
-                    (accounts.length === 0) ? setStatus('CONNECT') : 
-                    (fetchWallet(), setStatus(address.substring(38)));
-                });
+        async function updateWallet() {
+            if (window.ethereum && window.ethereum.selectedAddress) {
+                fetchWallet();
             }
         }
-        fetchWallet(); 
+        updateWallet(); 
     }, []);
+
+    async function fetchWallet(){
+        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        const balance = await provider.getBalance(address);
+        setProvider(provider);
+        setSigner(signer);
+        setAddress(address);
+        setBalance(balance);
+        setStatus('0x' + address.substring(38));
+        console.log('PROVIDER:', provider);
+        console.log('SIGNER:', signer);
+        console.log('ADDRESS:', address);
+        console.log('BALANCE:', balance);
+        window.ethereum.on('accountsChanged', (accounts) => {
+            (accounts.length === 0) ? setStatus('CONNECT') : 
+            (fetchWallet(), setStatus(address.substring(38)));
+        });
+    }
+    
+    async function connectWallet() {
+        if (window.ethereum) {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            fetchWallet();
+        } else {
+            alert('METAMASK NOT DETECTED')
+        }
+    }
     
     return (
 
@@ -81,7 +91,7 @@ export default function Navbar() {
                         target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button><a>{status}</a></button>
+                    <button onClick={connectWallet}><a>{status}</a></button>
                     
                 </div>
 
