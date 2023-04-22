@@ -29,6 +29,7 @@ export default function Navbar() {
     }
 
     useEffect(() => { 
+        fetchWallet();
         (async () => {
             const data = await fetchWallet();
             if (data) {
