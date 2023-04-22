@@ -36,7 +36,7 @@ export default function Checker() {
         newList.includes(wallet.toLowerCase()) ? 
             (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) :
             (setStatus("YOU ARE NOT WHITELISTED!"), setWhitelisted(false), setCopied(false));
-
+            
         console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
         setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
     }

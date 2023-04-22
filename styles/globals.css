@@ -86,13 +86,6 @@
     color: red;
 }
 
-.proof{
-    justify-content: center;
-    padding: 0 300px 0 300px;
-    word-wrap: break-word;
-}
-
-
 @media only screen and (max-width: 768px) {
 
     .navbar {
