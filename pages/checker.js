@@ -1,5 +1,4 @@
 import React from "react";
-import { useRef } from "react";
 import { create } from "ipfs-http-client";
 import { useState, useEffect } from "react";
 import MerkleTree from "merkletreejs";
@@ -13,6 +12,7 @@ export default function Checker() {
     const [ tree, setTree] = useState(null);
     const [ proof, setProof] = useState(null);
     const [ whitelisted, setWhitelisted ] = useState(false);
+    const [ copied, setCopied ] = useState(false);
     
     const bufToHex = x => "0x" + x.toString("hex");
     const ipfs = create('https://ipfs.io/');
@@ -26,25 +26,24 @@ export default function Checker() {
                 item.substring(2)).map((item, index) => index === 0 ? `0x${item}` : item);
             setList(temp); 
             setTree(new MerkleTree(temp.map((x) => 
-                keccak256(x)), keccak256, { sortPairs: true }));
+                keccak256(x)), keccak256, { sortPairs: true }));              
         }
         file(storage);
     }, []);
 
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
         newList.includes(wallet.toLowerCase()) ? 
-            (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) : 
-            setStatus("YOU ARE NOT WHITELISTED!");
-        
+            (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) :
+            (setStatus("YOU ARE NOT WHITELISTED!"), setWhitelisted(false), setCopied(false));
+
         console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
         setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
     }
 
     async function copyToClipboard() {
         await navigator.clipboard.writeText(proof);
+        setCopied(true);
     }
 
     return (
@@ -66,7 +65,9 @@ export default function Checker() {
 
                 <p>{status}</p>
 
-                {whitelisted ? <button onClick={copyToClipboard}>CLICK TO COPY YOUR MERKLEPROOF</button> : <></>}
+                {whitelisted ? <><button onClick={copyToClipboard}>
+                    CLICK TO COPY YOUR MERKLEPROOF</button> 
+                    {copied ? <p>COPIED</p> : <></>}</> : <></>}
 
             </div> 
 
