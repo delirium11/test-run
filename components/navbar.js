@@ -9,23 +9,10 @@ export default function Navbar() {
 
     const [ show, setShow ] = useState(true);
     const [ provider, setProvider ] = useState(null);
-    const [ address, setAddress ] = useState(null);
+    const [ address, setAddress ] = useState('');
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth > 768) {
-                setShow(false);
-            } else if (window.innerWidth < 768) {
-                setShow(true);
-            }
-        }
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
     
     async function fetchWallet() {
         if (window.ethereum && window.ethereum.selectedAddress) {
