@@ -1,8 +1,9 @@
 import React from "react";
+import { useRef } from "react";
 import { create } from "ipfs-http-client";
 import { useState, useEffect } from "react";
-import keccak256 from "keccak256";
 import MerkleTree from "merkletreejs";
+import keccak256 from "keccak256";
 
 export default function Checker() {
 
@@ -11,6 +12,7 @@ export default function Checker() {
     const [ status, setStatus] = useState("");
     const [ tree, setTree] = useState(null);
     const [ proof, setProof] = useState(null);
+    const [ whitelisted, setWhitelisted ] = useState(false);
     
     const bufToHex = x => "0x" + x.toString("hex");
     const ipfs = create('https://ipfs.io/');
@@ -34,18 +36,22 @@ export default function Checker() {
     const handleSubmit = (event) => {
         event.preventDefault();
         newList.includes(wallet.toLowerCase()) ? 
-            setStatus("YOU ARE WHITELISTED!") : 
+            (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) : 
             setStatus("YOU ARE NOT WHITELISTED!");
         
-        console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)))
+        console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
         setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
+    }
+
+    async function copyToClipboard() {
+        await navigator.clipboard.writeText(proof);
     }
 
     return (
 
         <div className="page_content">
 
-            <div className="checker_page_text_content">
+            <div className="checker_page_content">
 
                 <form id="checker_form" onSubmit={handleSubmit}>
                     
@@ -58,9 +64,9 @@ export default function Checker() {
 
                 <button type="submit" form="checker_form">CHECK</button>
 
-                <p className="checker_page_content">{status}</p>
+                <p>{status}</p>
 
-                <div className="proof"><p>{proof}</p></div>
+                {whitelisted ? <button onClick={copyToClipboard}>CLICK TO COPY YOUR MERKLEPROOF</button> : <></>}
 
             </div> 
 
