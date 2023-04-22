@@ -7,13 +7,12 @@ import { faSailboat } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
 
-    const [ show, setShow ] = useState(true);
     const [ provider, setProvider ] = useState(null);
     const [ address, setAddress ] = useState(null);
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
-    
+
     useEffect(() => { 
         async function fetchWallet() {
             if (window.ethereum) {
@@ -40,29 +39,13 @@ export default function Navbar() {
                 }
             }
         }
-        fetchWallet(); 
+        fetchWallet();
     }, []);
 
     async function connectWallet() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
             const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            const address = await signer.getAddress();
-            const balance = await provider.getBalance(address);
-            setProvider(provider);
-            setSigner(signer);
-            setAddress(address);
-            setBalance(balance);
-            setStatus('0x' + address.substring(38));
-            console.log('PROVIDER:', provider);
-            console.log('SIGNER:', signer);
-            console.log('ADDRESS:', address);
-            console.log('BALANCE:', balance);
-            window.ethereum.on('accountsChanged', (accounts) => {
-                (accounts.length === 0) ? setStatus('CONNECT') : 
-                (connectWallet(), setStatus(address.substring(38)));
-            });
         } else {
             alert('METAMASK NOT DETECTED')
         }
