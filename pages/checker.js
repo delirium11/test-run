@@ -42,6 +42,9 @@ export default function Checker() {
     }
 
     async function copyToClipboard() {
+        if (window.location.origin !== 'https://www.delirium11.xyz/checker') {
+            return;
+        }
         try{
             await navigator.clipboard.writeText(proof);
             setCopied(true);
