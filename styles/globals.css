@@ -63,8 +63,6 @@
 .checker_description {
     color: bisque;
     font-size: 20px;
-    padding-top: 20px;
-    padding-bottom: 50px;
     margin: 0 30% 0 30%;
 }
 
@@ -91,6 +89,10 @@
     transition: 0.25s;
     cursor: pointer;
     color: red;
+}
+
+.copied {
+    font-size: 20px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -129,8 +131,6 @@
     }
 
     .checker_description {
-        padding-top: 0;
-        padding-bottom: 0;
         margin: 0 15% 0 15%;
     }
 

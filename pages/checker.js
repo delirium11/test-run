@@ -58,11 +58,6 @@ export default function Checker() {
 
                 <form id="checker_form" onSubmit={handleSubmit}>
 
-                    <p className="checker_description">
-                    If you want to mint from the contract directly 
-                    you can copy your merkle proof from this page. 
-                    Make sure you enter the right wallet address.</p>
-                    
                     <p>ENTER YOUR WALLET</p>
                     
                     <input type="text" value={wallet} 
@@ -76,7 +71,12 @@ export default function Checker() {
 
                 {whitelisted ? <><button onClick={copyToClipboard}>
                     COPY YOUR MERKLEPROOF</button> 
-                    {copied ? <p>COPIED</p> : <></>}</> : <></>}
+                    {copied ? <p className="copied">COPIED</p> : 
+                    <p className="copied">&nbsp;</p>}
+                    <p className="checker_description">
+                    If you want to mint from the contract directly 
+                    you can copy your merkle proof from this page. 
+                    Make sure you enter the right wallet address.</p></> : <></>}
 
             </div> 
 
