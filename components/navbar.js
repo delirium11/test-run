@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ethers } from 'ethers';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { faSailboat } from "@fortawesome/free-solid-svg-icons";

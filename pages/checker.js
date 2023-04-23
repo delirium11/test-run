@@ -1,6 +1,5 @@
-import React from "react";
 import { create } from "ipfs-http-client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MerkleTree from "merkletreejs";
 import keccak256 from "keccak256";
 
@@ -13,7 +12,7 @@ export default function Checker() {
     const [ proof, setProof] = useState(null);
     const [ whitelisted, setWhitelisted ] = useState(false);
     const [ copied, setCopied ] = useState(false);
-    
+
     const bufToHex = x => "0x" + x.toString("hex");
     const ipfs = create('https://ipfs.io/');
     const storage = 'QmfAkb4ksqYi4dmX8sUwaZ1BP6qdcbZ2JWMoW77nx9BAKD';
@@ -23,10 +22,10 @@ export default function Checker() {
             const chunks = [];
             for await (const chunk of ipfs.cat(storage)) {chunks.push(chunk)}
             const temp = Buffer.concat(chunks).toString().toLowerCase().split(',').map(item => 
-                item.substring(2)).map((item, index) => index === 0 ? `0x${item}` : item);
-            setList(temp); 
+                item.substring(2)).map((item, index) => index ? item : `0x${item}`);
             setTree(new MerkleTree(temp.map((x) => 
-                keccak256(x)), keccak256, { sortPairs: true }));              
+                keccak256(x)), keccak256, { sortPairs: true }));
+            setList(temp);
         }
         file(storage);
     }, []);
@@ -36,7 +35,6 @@ export default function Checker() {
         newList.includes(wallet.toLowerCase()) ? 
             (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) :
             (setStatus("YOU ARE NOT WHITELISTED!"), setWhitelisted(false), setCopied(false));
-
         console.log(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
         setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
     }
