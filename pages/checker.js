@@ -59,12 +59,12 @@ export default function Checker() {
 
                     <p>ENTER YOUR WALLET</p>
                     
-                    <input type="text" value={wallet} 
+                    <input className="box" type="text" value={wallet} 
                         onChange={(e) => setWallet(e.target.value)}/>
                     
                 </form>
 
-                <button type="submit" form="checker_form">CHECK</button>
+                <button className="box" type="submit" form="checker_form">CHECK</button>
 
                 <p>{status}</p>
 
