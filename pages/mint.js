@@ -1,4 +1,3 @@
-import React from "react";
 
 
 export default function Mint() {
@@ -7,7 +6,7 @@ export default function Mint() {
 
         <div className="page_content">
 
-            <div className="mint_page_text_content">
+            <div className="mint_page_content">
 
                 <h1>MINT PAGE</h1>
                 <p>THIS IS THE MINT PAGE</p>

@@ -52,7 +52,7 @@ export default function Navbar() {
     
     return (
 
-        <div className="the_navbar">
+        <div className="scale_navbar">
 
             <div className="logo_mobile_container">
 
