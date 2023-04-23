@@ -4,7 +4,7 @@ export default function Application() {
 
     return (
 
-        <div className="text_content">
+        <div className="page_content">
 
             <div className="application_page_content">
 
