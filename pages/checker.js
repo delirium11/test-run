@@ -68,14 +68,27 @@ export default function Checker() {
 
                 <p>{status}</p>
 
-                {whitelisted ? <><button onClick={copyToClipboard}>
-                    COPY YOUR MERKLEPROOF</button> 
-                    {copied ? <p className="copied">COPIED</p> : 
-                    <p className="copied">&nbsp;</p>}
-                    <p className="checker_description">
-                    If you want to mint from the contract directly 
-                    you can copy your merkle proof from this page. 
-                    Make sure you enter the right wallet address.</p></> : <></>}
+                {
+
+                    whitelisted ? 
+                    
+                    <>
+                        <button onClick={copyToClipboard}>COPY YOUR MERKLEPROOF</button> 
+                        
+                        {copied ? <p className="copied">COPIED</p> : 
+                        <p className="copied">&nbsp;</p>}
+
+                        <p className="checker_description">
+                        
+                            If you want to mint from the contract directly 
+                            you can copy your merkle proof from this page. 
+                            Make sure you enter the right wallet address.
+                        
+                        </p>
+                    
+                    </> : <></>
+
+                }
 
             </div> 
 

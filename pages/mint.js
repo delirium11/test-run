@@ -19,6 +19,7 @@ export default function Mint() {
     const [ status, setStatus ] = useState('CONNECT');
     const [ newList, setList ] = useState([]);
     const [ tree, setTree] = useState(null);
+    const [ response, setResposne ] = useState('');
 
     const contractAddress = '0x44d3984F0596e1c1a7d0E0b28732d5082b0F5e7a';
     const contractABI  = contractabi;
@@ -86,6 +87,7 @@ export default function Mint() {
         } else {
             if (newList.includes(address.toLowerCase())) {
                 try {
+                    setResposne('');
                     const proof = tree.getProof(keccak256(address)).map((x) => bufToHex(x.data));
                     const cost = ethers.utils.parseEther(( number * 0.003).toString());
                     const contract = new ethers.Contract(contractAddress, contractABI, signer);
@@ -95,7 +97,7 @@ export default function Mint() {
                     console.log('USER REJECTED THE TRANSACTION')
                 }
             } else {
-                console.log('THIS ADDRESS IS NOT WHITELISTED')
+                setResposne('CONNECTED ADDRESS IS NOT WHITELISTED');
             }
         }
     }
@@ -107,6 +109,7 @@ export default function Mint() {
             <div className="mint_page_content">
 
                 <h1>MINT PAGE</h1>
+
                 <p>THIS IS THE MINT PAGE</p>
         
                 <div>
@@ -118,8 +121,16 @@ export default function Mint() {
                 <div>
         
                     <button className="minus_button" onClick={decrease}>-</button>
+
                     <p className="counter">{number}</p>
+                    
                     <button className="plus_button" onClick={increase}>+</button>
+
+                </div>
+
+                <div>
+
+                    <p>{response}</p>
 
                 </div>
             
