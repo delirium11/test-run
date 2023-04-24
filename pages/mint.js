@@ -57,10 +57,10 @@ export default function Mint() {
                 setAddress(address);
                 setBalance(balance);
                 setStatus('0x' + address.substring(38).toUpperCase());
-                //console.log('PROVIDER:', provider);
-                //console.log('SIGNER:', signer);
-                //console.log('ADDRESS:', address);
-                //console.log('BALANCE:', balance);
+                console.log('PROVIDER:', provider);
+                console.log('SIGNER:', signer);
+                console.log('ADDRESS:', address);
+                console.log('BALANCE:', balance);
                 window.ethereum.on('accountsChanged', (accounts) => {
                     (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
                 });
