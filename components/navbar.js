@@ -11,10 +11,6 @@ export default function Navbar() {
     const { navbarRenderCount } = useContext(AppContext)
     const { mintPageRenderCount, setNavbarRenderCount } = useContext(AppContext)
 
-    const [ provider, setProvider ] = useState(null);
-    const [ address, setAddress ] = useState(null);
-    const [ balance, setBalance ] = useState(null);
-    const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
 
     useEffect(() => { fetchWallet(), mintPageRenderCount }, [mintPageRenderCount]);
@@ -26,15 +22,7 @@ export default function Navbar() {
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
                 const balance = ethers.utils.formatEther(await provider.getBalance(address));
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
                 setStatus('0x' + address.substring(38).toUpperCase());
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
-                console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
                 window.ethereum.on('accountsChanged', (accounts) => {
                     (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
                 });
