@@ -1,4 +1,4 @@
-import { AppContextProvider } from '@/components/render'
+import { AppContextProvider } from '@/components/renderCounter'
 import styles from '../styles/globals.css'
 import Navbar from '@/components/navbar'
 

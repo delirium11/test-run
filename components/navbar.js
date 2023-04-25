@@ -3,40 +3,29 @@ import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
 import { faSailboat } from "@fortawesome/free-solid-svg-icons";
-import { AppContext } from './render';
-import { ethers } from 'ethers';
+import { AppContext } from './renderCounter';
+import { fetchWallet } from './walletFetcher';
 
 export default function Navbar() {
 
-    const { navbarRenderCount } = useContext(AppContext)
-    const { mintPageRenderCount, setNavbarRenderCount } = useContext(AppContext)
+    const { mintPageRenderCount } = useContext(AppContext)
+    const { navbarRenderCount, setNavbarRenderCount } = useContext(AppContext)
 
+    const [ provider, setProvider ] = useState(null);
+    const [ address, setAddress ] = useState(null);
+    const [ balance, setBalance ] = useState(null);
+    const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
 
-    useEffect(() => { fetchWallet(), mintPageRenderCount }, [mintPageRenderCount]);
-
-    async function fetchWallet() {
-        if (window.ethereum) {
-            try{
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = ethers.utils.formatEther(await provider.getBalance(address));
-                setStatus('0x' + address.substring(38).toUpperCase());
-                window.ethereum.on('accountsChanged', (accounts) => {
-                    (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
-                });
-            } catch (error) {
-                console.log('CONNECT WITH METAMASK');
-            }
-        }
-    }
+    useEffect(() => { 
+        fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
+    }, [mintPageRenderCount]);
 
     async function connectWallet() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
-            fetchWallet();
-            setNavbarRenderCount(navbarRenderCount + 1)
+            fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
+            setNavbarRenderCount(navbarRenderCount + 1);
         } else {
             alert('METAMASK NOT DETECTED')
         }
@@ -91,8 +80,3 @@ export default function Navbar() {
     )
 
 }
-
-
-/* 
-
-*/

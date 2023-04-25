@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { ethers } from 'ethers';
-import { create } from "ipfs-http-client";
-import MerkleTree from "merkletreejs";
-import keccak256 from "keccak256";
-import { AppContext } from '../components/render';
-import contractabi from '../contractabi';
+import { AppContext } from '../components/renderCounter';
+import { fetchWallet } from '../components/walletFetcher';
+import { file, mint, increase, decrease } from "@/components/whitelistFetcher";
 
 export default function Mint() {
     
@@ -19,86 +16,29 @@ export default function Mint() {
     const [ status, setStatus ] = useState('CONNECT');
     const [ newList, setList ] = useState([]);
     const [ tree, setTree] = useState(null);
-    const [ response, setResposne ] = useState('');
+    const [ response, setResponse ] = useState('');
+    const [ alert, setAlert ] = useState('');
 
-    const contractAddress = '0x44d3984F0596e1c1a7d0E0b28732d5082b0F5e7a';
-    const contractABI  = contractabi;
-
-    const bufToHex = x => "0x" + x.toString("hex");
-    const ipfs = create('https://ipfs.io/');
-    const storage = 'QmfAkb4ksqYi4dmX8sUwaZ1BP6qdcbZ2JWMoW77nx9BAKD';
-
-    function increase() { number < 3 ? setNumber(number + 1) : setNumber(number) }
-    function decrease() { number > 1 ? setNumber(number - 1) : setNumber(number) }
-
-    useEffect(() => {
-        async function file(storage) {
-            const chunks = [];
-            for await (const chunk of ipfs.cat(storage)) {chunks.push(chunk)}
-            const temp = Buffer.concat(chunks).toString().toLowerCase().split(',').map(item => 
-                item.substring(2)).map((item, index) => index ? item : `0x${item}`);
-            setTree(new MerkleTree(temp.map((x) => 
-                keccak256(x)), keccak256, { sortPairs: true }));
-            setList(temp);
-        }
-        file(storage);
-    }, []);
-
-    useEffect(() => { fetchWallet(), navbarRenderCount }, [navbarRenderCount]);
-
-    async function fetchWallet() {
-        if (window.ethereum) {
-            try{
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                const address = await signer.getAddress();
-                const balance = await provider.getBalance(address);
-                setProvider(provider);
-                setSigner(signer);
-                setAddress(address);
-                setBalance(balance);
-                setStatus('0x' + address.substring(38).toUpperCase());
-                console.log('PROVIDER:', provider);
-                console.log('SIGNER:', signer);
-                console.log('ADDRESS:', address);
-                console.log('BALANCE:', balance);
-                window.ethereum.on('accountsChanged', (accounts) => {
-                    (accounts.length === 0) ? setStatus('CONNECT') : (fetchWallet());
-                });
-            } catch (error) {
-                console.log('CONNECT WITH METAMASK');
-            }
-        }
-    }
+    useEffect(() => { 
+        file(setTree, setList);
+        fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
+    }, [navbarRenderCount]);
 
     async function connectWallet() {
         if (window.ethereum) {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
-            fetchWallet();
+            fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
             setMintPageRenderCount(mintPageRenderCount + 1);
         } else {
             alert('METAMASK NOT DETECTED')
         }
     }
 
-    async function mint() {
-        if( provider === null ) {
+    async function mintButton() {
+        if( provider == null ) {
             connectWallet();
         } else {
-            if (newList.includes(address.toLowerCase())) {
-                try {
-                    setResposne('');
-                    const proof = tree.getProof(keccak256(address)).map((x) => bufToHex(x.data));
-                    const cost = ethers.utils.parseEther(( number * 0.003).toString());
-                    const contract = new ethers.Contract(contractAddress, contractABI, signer);
-                    const callFunction = await contract.whitelistMint(number, proof, { value: cost });
-                    await callFunction.wait();
-                } catch (error) {
-                    console.log('USER REJECTED THE TRANSACTION')
-                }
-            } else {
-                setResposne('CONNECTED ADDRESS IS NOT WHITELISTED');
-            }
+            mint(newList, tree, address, setResponse, setAlert, balance, number, signer );
         }
     }
 
@@ -114,23 +54,26 @@ export default function Mint() {
         
                 <div>
         
-                    <button className="mint_button" onClick={mint}>MINT</button>
+                    <button className="mint_button" onClick={mintButton}>MINT</button>
 
                 </div>
 
                 <div>
         
-                    <button className="minus_button" onClick={decrease}>-</button>
+                    <button className="minus_button" onClick={() => 
+                        decrease(number, setNumber)}>-</button>
 
                     <p className="counter">{number}</p>
                     
-                    <button className="plus_button" onClick={increase}>+</button>
+                    <button className="plus_button" onClick={() => 
+                        increase(number, setNumber)}>+</button>
 
                 </div>
 
                 <div>
 
                     <p>{response}</p>
+                    <p>{alert}</p>
 
                 </div>
             

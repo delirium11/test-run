@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { create } from "ipfs-http-client";
-import MerkleTree from "merkletreejs";
-import keccak256 from "keccak256";
+import { file, bufToHex } from "@/components/whitelistFetcher";
 
 export default function Checker() {
 
@@ -13,31 +11,15 @@ export default function Checker() {
     const [ whitelisted, setWhitelisted ] = useState(false);
     const [ copied, setCopied ] = useState(false);
 
-    const bufToHex = x => "0x" + x.toString("hex");
-    const ipfs = create('https://ipfs.io/');
-    const storage = 'QmfAkb4ksqYi4dmX8sUwaZ1BP6qdcbZ2JWMoW77nx9BAKD';
-
-    useEffect(() => {
-        async function file(storage) {
-            const chunks = [];
-            for await (const chunk of ipfs.cat(storage)) {chunks.push(chunk)}
-            const temp = Buffer.concat(chunks).toString().toLowerCase().split(',').map(item => 
-                item.substring(2)).map((item, index) => index ? item : `0x${item}`);
-            setTree(new MerkleTree(temp.map((x) => 
-                keccak256(x)), keccak256, { sortPairs: true }));
-            setList(temp);
-        }
-        file(storage);
-    }, []);
+    useEffect(() => { file(setTree, setList) }, [])
 
     const handleSubmit = (event) => {
+        //console.log(bufToHex(tree.getRoot()))
         event.preventDefault();
         newList.includes(wallet.toLowerCase()) ? 
-            (setStatus("YOU ARE WHITELISTED!"), setWhitelisted(true)) :
-            (setStatus("YOU ARE NOT WHITELISTED!"), setWhitelisted(false), setCopied(false));
-        console.log('ROOT:', bufToHex(tree.getRoot()));
-        console.log('PROOF:', tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
-        setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data)));
+            (setProof(tree.getProof(keccak256(wallet)).map((x) => bufToHex(x.data))), 
+            (setStatus("YOU ARE WHITELISTED!")), (setWhitelisted(true))) :
+            (setStatus("YOU ARE NOT WHITELISTED!"), setWhitelisted(false), setCopied(false));        
     }
 
     async function copyToClipboard() {
