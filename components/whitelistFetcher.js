@@ -4,7 +4,7 @@ import MerkleTree from "merkletreejs";
 import keccak256 from "keccak256";
 import contractabi from '../contractabi';
 
-const bufToHex = x => "0x" + x.toString("hex");
+export const bufToHex = x => "0x" + x.toString("hex");
 const ipfs = create('https://ipfs.io/');
 const storage = 'QmfAkb4ksqYi4dmX8sUwaZ1BP6qdcbZ2JWMoW77nx9BAKD';
 
