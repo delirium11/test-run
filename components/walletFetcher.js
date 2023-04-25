@@ -26,3 +26,14 @@ export async function fetchWallet(setProvider, setSigner, setAddress, setBalance
         }
     }
 }
+
+export async function connectWallet(fetchWallet, setProvider, setSigner, 
+    setAddress, setBalance, setStatus, renderCount, setRenderCount) {
+    if (window.ethereum) {
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
+        setRenderCount(renderCount + 1);
+    } else {
+        alert('METAMASK NOT DETECTED')
+    }
+}

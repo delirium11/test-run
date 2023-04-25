@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { AppContext } from '../components/renderCounter';
-import { fetchWallet } from '../components/walletFetcher';
 import { file, mint, increase, decrease } from "@/components/whitelistFetcher";
+import { fetchWallet, connectWallet } from '../components/walletFetcher';
+import { AppContext } from "@/components/renderCounter";
 
 export default function Mint() {
     
-    const { navbarRenderCount } = useContext(AppContext)
-    const { mintPageRenderCount, setMintPageRenderCount } = useContext(AppContext)
+    const { renderCount, setRenderCount } = useContext(AppContext);
 
     const [ number, setNumber ] = useState(3);
     const [ provider, setProvider ] = useState(null);
@@ -22,21 +21,12 @@ export default function Mint() {
     useEffect(() => { 
         file(setTree, setList);
         fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
-    }, [navbarRenderCount]);
-
-    async function connectWallet() {
-        if (window.ethereum) {
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
-            setMintPageRenderCount(mintPageRenderCount + 1);
-        } else {
-            alert('METAMASK NOT DETECTED')
-        }
-    }
+    }, [renderCount]);
 
     async function mintButton() {
         if( provider == null ) {
-            connectWallet();
+            connectWallet(fetchWallet, setProvider, setSigner, 
+                setAddress, setBalance, setStatus, renderCount, setRenderCount);
         } else {
             mint(newList, tree, address, setResponse, setAlert, balance, number, signer );
         }

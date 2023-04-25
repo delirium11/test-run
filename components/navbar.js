@@ -1,15 +1,14 @@
 import Link from 'next/link';
 import React, { useState, useEffect, useContext } from "react";
+import { fetchWallet, connectWallet } from './walletFetcher';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
 import { faSailboat } from "@fortawesome/free-solid-svg-icons";
 import { AppContext } from './renderCounter';
-import { fetchWallet } from './walletFetcher';
 
 export default function Navbar() {
 
-    const { mintPageRenderCount } = useContext(AppContext)
-    const { navbarRenderCount, setNavbarRenderCount } = useContext(AppContext)
+    const { renderCount, setRenderCount } = useContext(AppContext);
 
     const [ provider, setProvider ] = useState(null);
     const [ address, setAddress ] = useState(null);
@@ -19,18 +18,13 @@ export default function Navbar() {
 
     useEffect(() => { 
         fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
-    }, [mintPageRenderCount]);
+    }, [renderCount]);
 
-    async function connectWallet() {
-        if (window.ethereum) {
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
-            setNavbarRenderCount(navbarRenderCount + 1);
-        } else {
-            alert('METAMASK NOT DETECTED')
-        }
+    async function useConnectWallet() {
+        connectWallet(fetchWallet, setProvider, setSigner, 
+            setAddress, setBalance, setStatus, renderCount,setRenderCount);
     }
-    
+
     return (
 
         <div className="scale_navbar">
@@ -69,7 +63,7 @@ export default function Navbar() {
                         target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                    <button onClick={connectWallet}><a>{status}</a></button>
+                    <button onClick={useConnectWallet}><a>{status}</a></button>
                     
                 </div>
 
