@@ -4,12 +4,13 @@ import MerkleTree from "merkletreejs";
 import keccak256 from "keccak256";
 import contractabi from '../contractabi';
 
-export const bufToHex = x => "0x" + x.toString("hex");
 const ipfs = create('https://ipfs.io/');
 const storage = 'QmfAkb4ksqYi4dmX8sUwaZ1BP6qdcbZ2JWMoW77nx9BAKD';
 
 const contractAddress = '0x44d3984F0596e1c1a7d0E0b28732d5082b0F5e7a';
 const contractABI  = contractabi;
+
+export const bufToHex = x => "0x" + x.toString("hex");
 
 export async function file(setTree, setList) {
     const chunks = [];
@@ -20,22 +21,26 @@ export async function file(setTree, setList) {
     setList(temp);
 }
 
-export async function mint(newList, tree, address, setResponse, setAlert, balance, number, signer) {
+export async function mint(newList, tree, address, 
+    setResponse, setAlert, balance, number, signer) {
     if (newList.includes(address.toLowerCase())) {
         try {
             setResponse('');
             setAlert('');
             const proof = tree.getProof(keccak256(address)).map((x) => bufToHex(x.data));
-            const cost = ethers.utils.parseEther(( number * (0.003)).toString());
             const contract = new ethers.Contract(contractAddress, contractABI, signer);
-            if (ethers.utils.formatEther(balance) >= ethers.utils.formatEther(cost)) {
+            const nftBalance = parseInt(await contract.balanceOf(address));
+            (nftBalance === 4) ? (number--) : (number);
+            const cost = ethers.utils.parseEther(( number * (0.003)).toString());
+            const whitelisted = await contract.amIOnTheWhitelist(proof)
+            if ((ethers.utils.formatEther(balance) >= ethers.utils.formatEther(cost)) && whitelisted) {
                 const callFunction = await contract.whitelistMint(number, proof, { value: cost });
                 await callFunction.wait();
             } else {
-                setAlert('YOU DO NOT ENOUGH ETHEREUM IN THE WALLET')
+                setAlert('YOU DO NOT ENOUGH FUNDS IN YOUR ETHEREUM WALLET');
             }
         } catch (error) {
-            console.error(error)
+            console.log('USER REJECTED THE TRANSACTION');
         }
     } else {
         setResponse('CONNECTED ADDRESS IS NOT WHITELISTED');
