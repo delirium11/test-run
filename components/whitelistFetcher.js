@@ -30,7 +30,7 @@ export async function mint(newList, tree, address,
             const proof = tree.getProof(keccak256(address)).map((x) => bufToHex(x.data));
             const contract = new ethers.Contract(contractAddress, contractABI, signer);
             const nftBalance = parseInt(await contract.balanceOf(address));
-            (nftBalance === 4) ? (number--) : (number);
+            (nftBalance === 0) ? (number--) : (number);
             const cost = ethers.utils.parseEther(( number * (0.003)).toString());
             const whitelisted = await contract.amIOnTheWhitelist(proof)
             if ((ethers.utils.formatEther(balance) >= ethers.utils.formatEther(cost)) && whitelisted) {
