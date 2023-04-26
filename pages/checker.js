@@ -24,7 +24,7 @@ export default function Checker() {
 
     async function copyToClipboard() {
         try{
-            await navigator.clipboard.writeText(proof);
+            await navigator.clipboard.writeText('[' + proof + ']');
             setCopied(true);
         } catch(error) {
             alert('BROWSER DOES NOT SUPPORT COPY TO CLIPBOARD. USE GOOGLE CHROME' );
