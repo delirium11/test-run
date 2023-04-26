@@ -28,7 +28,7 @@ export default function Mint() {
             connectWallet(fetchWallet, setProvider, setSigner, 
                 setAddress, setBalance, setStatus, renderCount, setRenderCount);
         } else {
-            mint(newList, tree, address, setResponse, setAlert, balance, number, signer );
+            mint(tree, address, setResponse, setAlert, balance, number, signer );
         }
     }
 

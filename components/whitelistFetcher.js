@@ -5,7 +5,7 @@ import keccak256 from "keccak256";
 import contractabi from '../contractabi';
 
 const ipfs = create('https://ipfs.io/');
-const storage = 'QmfAkb4ksqYi4dmX8sUwaZ1BP6qdcbZ2JWMoW77nx9BAKD';
+const storage = 'QmbD4QygEHUpEwLGJs7gEh4MsiQfu86qJkXxU55Jg1FnTD';
 
 const contractAddress = '0x44d3984F0596e1c1a7d0E0b28732d5082b0F5e7a';
 const contractABI  = contractabi;
@@ -21,18 +21,17 @@ export async function file(setTree, setList) {
     setList(temp);
 }
 
-export async function mint(newList, tree, address, 
-    setResponse, setAlert, balance, number, signer) {
-    if (newList.includes(address.toLowerCase())) {
+export async function mint(tree, address, setResponse, setAlert, balance, number, signer) {
+        setResponse('');
+        setAlert('');
+        const proof = tree.getProof(keccak256(address)).map((x) => bufToHex(x.data));
+        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+        const nftBalance = parseInt(await contract.balanceOf(address));
+        const whitelisted = await contract.amIOnTheWhitelist(proof)
+        let cost = ethers.utils.parseEther(( number * (0.003)).toString());
+        if (nftBalance === 0) { (cost = ethers.utils.parseEther(( (number - 1) * (0.003)).toString())) }
+    if (whitelisted) {
         try {
-            setResponse('');
-            setAlert('');
-            const proof = tree.getProof(keccak256(address)).map((x) => bufToHex(x.data));
-            const contract = new ethers.Contract(contractAddress, contractABI, signer);
-            const nftBalance = parseInt(await contract.balanceOf(address));
-            (nftBalance === 0) ? (number--) : (number);
-            const cost = ethers.utils.parseEther(( number * (0.003)).toString());
-            const whitelisted = await contract.amIOnTheWhitelist(proof)
             if ((ethers.utils.formatEther(balance) >= ethers.utils.formatEther(cost)) && whitelisted) {
                 const callFunction = await contract.whitelistMint(number, proof, { value: cost });
                 await callFunction.wait();
