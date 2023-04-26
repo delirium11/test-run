@@ -32,10 +32,10 @@ export async function mint(newList, tree, address, setResponse, setAlert, balanc
                 const callFunction = await contract.whitelistMint(number, proof, { value: cost });
                 await callFunction.wait();
             } else {
-                setAlert('NOT ENOUGH ETHEREUM IN THE WALLET')
+                setAlert('YOU DO NOT ENOUGH ETHEREUM IN THE WALLET')
             }
         } catch (error) {
-            console.log('USER REJECTED THE TRANSACTION')
+            console.error(error)
         }
     } else {
         setResponse('CONNECTED ADDRESS IS NOT WHITELISTED');

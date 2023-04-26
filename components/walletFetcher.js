@@ -13,12 +13,12 @@ export async function fetchWallet(setProvider, setSigner, setAddress, setBalance
             setAddress(address);
             setBalance(balance);
             setStatus(status);
-            //console.log('PROVIDER:', provider);
-            //console.log('SIGNER:', signer);
-            //console.log('ADDRESS:', address);
-            //console.log('BALANCE:', balance);
+            console.log('PROVIDER:', provider);
+            console.log('SIGNER:', signer);
+            console.log('ADDRESS:', address);
+            console.log('BALANCE:', balance);
             window.ethereum.on('accountsChanged', (accounts) => {
-                (accounts.length === 0) ? setStatus('CONNECT') : 
+                (accounts.length === 0) ? (setProvider(null), setStatus('CONNECT')) : 
                 (fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus));
             });
         } catch (error) {
