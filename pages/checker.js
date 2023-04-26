@@ -42,7 +42,7 @@ export default function Checker() {
                     <p>ENTER YOUR WALLET</p>
                     
                     <input className="box" type="text" value={wallet} 
-                        onChange={(e) => setWallet(e.target.value)}/>
+                        onChange={(e) => setWallet((e.target.value).replace(/\s/g, ""))}/>
                     
                 </form>
 
