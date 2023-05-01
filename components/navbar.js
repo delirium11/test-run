@@ -47,9 +47,7 @@ export default function Navbar() {
 
                 <div className="navbar_content">
 
-                    <button><Link href="/checker">CHECKER</Link></button>
-
-                    <button><Link href="/mint">MINT</Link></button>
+                    <button><Link href="/application">APPLICATION</Link></button>
 
                     <button><a 
                         target="_blank" rel="noopener noreferrer">
@@ -74,3 +72,8 @@ export default function Navbar() {
     )
 
 }
+
+/*
+<button><Link href="/checker">CHECKER</Link></button>
+<button><Link href="/mint">MINT</Link></button>
+*/

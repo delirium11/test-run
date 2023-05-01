@@ -2,8 +2,6 @@
 
 export default function Application() {
 
-    const coster = 'my tea coster';
-
     return (
 
         <div className="page_content">

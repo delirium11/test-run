@@ -33,7 +33,7 @@ export async function mint(tree, address, setResponse, setAlert, balance, number
     const whitelisted = await contract.isWhitelisted(proof);
     const WLMintEnabled = await contract.whitelistMintEnabled();
     const PLMintEnabled = await contract.publicMintEnabled();
-    /*const [ whitelistMintPrice,  publicMintPrice,  whitelistBalance, publicBalance,  
+    /*const [ whitelistMintPrice,  publicMintPrice,  whitelistBalance, publicBalance,
         whitelisted,  WLMintEnabled,  PLMintEnabled ] = await Promise.all([
         contract.whitelistMintCost().then(ethers.utils.formatEther),
         contract.publicMintCost().then(ethers.utils.formatEther),
@@ -41,11 +41,11 @@ export async function mint(tree, address, setResponse, setAlert, balance, number
         contract.publicMintCounter(address).then(parseInt),
         contract.isWhitelisted(proof),
         contract.whitelistMintEnabled(),
-        contract.publicMintEnabled(),        
+        contract.publicMintEnabled(),
     ]);*/
     const ethBalance = ethers.utils.formatEther(balance);
-    let costOfWhitelistMint = (( number * (whitelistMintPrice)).toString());
-    let costOfPublicMint = (( number * (publicMintPrice)).toString());
+    let costOfWhitelistMint = ((number * (whitelistMintPrice)).toString());
+    let costOfPublicMint = ((number * (publicMintPrice)).toString());
     let costOfFreeMint = (((number - 1) * (whitelistMintPrice)).toString());
     if (whitelistBalance === 0) { (costOfWhitelistMint = costOfFreeMint) }
     if (WLMintEnabled) {
