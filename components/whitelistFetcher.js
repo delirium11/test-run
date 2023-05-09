@@ -5,7 +5,7 @@ import keccak256 from "keccak256";
 import contractabi from '../contractabi';
 
 const ipfs = create('https://ipfs.io/');
-const storage = 'QmP9byHiN4njYu5nykjX5UAqnPdimzeZyMxXMrTFGCPje3';
+const storage = 'QmZRTTZRkX4YqZKMhdZbsrfirJNBgRh5eNMpPK5no4tstK';
 
 const contractAddress = '0xb85202D81513d5255f9370409f2B70B19318b32a';
 const contractABI  = contractabi;
@@ -58,7 +58,8 @@ export async function mint(tree, address, setResponse, setAlert, balance, number
             ) {
                 try {
                     if ((ethBalance >= (costOfWhitelistMint)) && whitelisted) {
-                        const callFunction = await contract.whitelistMint(number, proof, { value: costOfWhitelistMint });
+                        const callFunction = await contract.whitelistMint(
+                            number, proof, { value: costOfWhitelistMint });
                         await callFunction.wait();
                     } else {
                         setAlert('YOU DO NOT ENOUGH FUNDS IN YOUR ETHEREUM WALLET');
@@ -85,7 +86,8 @@ export async function mint(tree, address, setResponse, setAlert, balance, number
         ) {
             try {
                 if ((ethBalance >= (costOfPublicMint))) {
-                    const callFunction = await contract.publicMint(number, { value: costOfPublicMint });
+                    const callFunction = await contract.publicMint(
+                        number, { value: costOfPublicMint });
                     await callFunction.wait();
                 } else {
                     setAlert('YOU DO NOT ENOUGH FUNDS IN YOUR ETHEREUM WALLET');
