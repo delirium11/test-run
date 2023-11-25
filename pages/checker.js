@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { file, bufToHex } from "@/components/whitelistFetcher";
+import styles from "../styles/checker.module.css";
 
 export default function Checker() {
 
@@ -37,30 +38,30 @@ export default function Checker() {
             
             <div className="checker_page_content">
 
-                <form id="checker_form" onSubmit={handleSubmit}>
+                <form className={styles.checkerForm} onSubmit={handleSubmit}>
 
-                    <p>ENTER YOUR WALLET</p>
+                    <p className={styles.formDescription}>ENTER YOUR WALLET</p>
                     
-                    <input className="box" type="text" value={wallet} 
+                    <input className={styles.box} type="text" value={wallet} 
                         onChange={(e) => setWallet((e.target.value).replace(/\s/g, ""))}/>
                     
                 </form>
 
-                <button className="box" type="submit" form="checker_form">CHECK</button>
+                <button className={styles.tempButton} type="submit" form="checker_form">CHECK</button>
 
-                <p>{status}</p>
+                <p className={styles.formDescription}>{status}</p>
 
                 {
 
                     whitelisted ? 
                     
                     <>
-                        <button onClick={copyToClipboard}>COPY YOUR MERKLEPROOF</button> 
+                        <button className={styles.tempButton} onClick={copyToClipboard}>COPY YOUR MERKLEPROOF</button> 
                         
-                        {copied ? <p className="copied">COPIED</p> : 
-                        <p className="copied">&nbsp;</p>}
+                        {copied ? <p className={styles.copied}>COPIED</p> : 
+                        <p className={styles.copied}>&nbsp;</p>}
 
-                        <p className="checker_description">
+                        <p className={styles.checkerDescription}>
                         
                             If you want to mint from the contract directly 
                             you can copy your merkle proof from this page. 

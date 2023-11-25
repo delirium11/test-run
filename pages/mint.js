@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import styles from "../styles/mint.module.css"
 import { file, mint, increase, decrease } from "@/components/whitelistFetcher";
 import { fetchWallet, connectWallet } from '../components/walletFetcher';
 import { AppContext } from "@/components/renderCounter";
@@ -34,29 +35,46 @@ export default function Mint() {
 
     return (
 
-        <div className="page_content">
+        <div className={styles.pageContent}>
 
-            <div className="mint_page_content">
+            <div className={styles.mintPageContainer}>
 
-                <h1>MINT PAGE</h1>
+                <h1 className={styles.mintPageTitle}>MINT PAGE</h1>
 
-                <p>THIS IS THE MINT PAGE</p>
+                <p className={styles.mintPageDescription}>THIS IS THE MINT PAGE</p>
         
-                <div>
-        
-                    <button className="mint_button" onClick={mintButton}>MINT</button>
-
-                </div>
-
-                <div>
-        
-                    <button className="minus_button" onClick={() => 
-                        decrease(number, setNumber)}>-</button>
-
-                    <p className="counter">{number}</p>
+                <div className={styles.minterContainer}>
                     
-                    <button className="plus_button" onClick={() => 
-                        increase(number, setNumber)}>+</button>
+                    <div className={styles.mintButtonContainer}>
+                    
+                        <button className={styles.mintButton} onClick={mintButton}>MINT</button>
+                    
+                    </div>
+                    
+                    <div className={styles.plusMinusContainer}>
+
+                        <div className={styles.minusButtonContainer}>
+
+                            <button className={styles.minusButton} onClick={() => 
+                                decrease(number, setNumber)}>-</button>
+
+                        </div>
+
+                        <div className={styles.counterContainer}>
+
+                            <p className={styles.counter}>{number}</p>
+
+                        </div>
+
+                        <div className={styles.plusButtonContainer}>
+
+                            <button className={styles.plusButton} onClick={() => 
+                                increase(number, setNumber)}>+</button>
+                        
+                        </div>
+                            
+                    </div>
+ 
 
                 </div>
 

@@ -1,0 +1,178 @@
+.roadMapPageContentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90vw;
+    height: 79vh;
+    margin-left: 5vw;
+    margin-top: 15vh;
+}
+
+.roadMapButtonContent {
+    display: flex;
+    flex-direction: column;
+    color: red;
+    position: relative;
+    height: 78vh;
+    width: 30vw;
+}
+
+.roadMapDescriptionContent {
+    background-color: #9ab97a;
+    border-radius: 20px;
+    position: relative;
+    height: 78vh;
+    width: 30vw;
+}
+
+.roadMapImageContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 78vh;
+    width: 30vw;
+}
+
+.roadMapButton1 {
+    width: 28vw;
+    height: 18vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 3vw;
+    background-color: #9ab97a;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.roadMapButton1:hover {
+    color: yellow;
+    background-color: #68854b;
+}
+
+.roadMapButton1:active {
+    background-color: #a6c488;
+}
+
+.roadMapButton2 {
+    font-size: 100px;
+    width: 28vw;
+    height: 18vh;
+    margin-top: 2vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 3vw;
+    background-color: #9ab97a;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.roadMapButton2:hover {
+    color: yellow;
+    background-color: #68854b;
+}
+
+.roadMapButton2:active {
+    background-color: #a6c488;
+}
+
+.roadMapButton3 {
+    font-size: 100px;
+    width: 28vw;
+    height: 18vh;
+    margin-top: 2vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 3vw;
+    background-color: #9ab97a;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.roadMapButton3:hover {
+    color: yellow;
+    background-color: #68854b;
+}
+
+.roadMapButton3:active {
+    background-color: #a6c488;
+}
+
+.roadMapButton4 {
+    font-size: 100px;
+    width: 28vw;
+    height: 18vh;
+    margin-top: 2vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 3vw;
+    background-color: #9ab97a;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.roadMapButton4:hover {
+    color: yellow;
+    background-color: #68854b;
+}
+
+.roadMapButton4:active {
+    background-color: #a6c488;
+}
+
+.futurePlans {
+    color: #364564;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 2vh;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.ourThoughts {
+    color: #364564;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 2vh;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px; 
+}
+
+.whatLiesAhead {
+    color: #364564;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 2vh;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px; 
+}
+
+.tfIsThis {
+    color: #364564;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
+    font-size: 2vh;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.heheImage {
+    width: 28vw;
+    margin-left: 2vw;
+}
+
+.plzImage {
+    width: 28vw;
+    margin-left: 2vw;
+}
+
+.wastedImage {
+    width: 28vw;
+    margin-left: 2vw;
+}
+
+.wtfImage {
+    width: 28vw;
+    margin-left: 2vw;
+}
+
+.notActive {
+    display: none;
+}
+

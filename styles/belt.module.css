@@ -1,0 +1,20 @@
+.animatedBelt {
+    width: 100vw;
+    height: 125px;
+    white-space: nowrap;
+}
+
+.imageBang {
+    height: 125px;
+    width: 125px;
+    animation: belt 30s infinite linear alternate;
+}
+
+@keyframes belt {
+   0% {
+    transform: translateX(-60vw);
+   } 
+   100% {
+    transform: translateX(-10vw);
+   }
+}

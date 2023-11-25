@@ -1,0 +1,57 @@
+
+.checker_page_content {
+    padding-bottom: 20px;
+}
+
+.checkerDescription {
+    color: bisque;
+    font-size: 20px;
+    margin: 0 30% 0 30%;
+}
+
+.checkerForm {
+    color: yellow;
+    margin: 25px 0 25px 0;
+    font-size: 25px;
+}
+
+.formDescription {
+    color: yellow;
+    margin: 25px 0 25px 0;
+    font-size: 25px;
+}
+
+.checker_page_content input {
+    text-align: center;
+    width: 550px;
+}
+
+.box {
+    background-color: #1D1D1D;
+    outline: none;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff434;
+    border: 3px solid;
+}
+
+.tempButton {
+    background-color: #1D1D1D;
+    outline: none;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff434;
+    border: 3px solid;
+}
+
+.tempButton:hover {
+    transition: 0.25s;
+    cursor: pointer;
+    color: red;
+}
+
+.copied {
+    font-size: 20px;
+}

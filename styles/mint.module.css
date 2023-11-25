@@ -1,0 +1,86 @@
+.mintPageContainer {
+    margin-top: 50px;
+}
+
+.mintPageTitle {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: yellow;
+}
+
+.mintPageDescription {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 30px;
+    color: yellow;
+}
+
+.minterContainer {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mintButtonContainer {
+    width: 153px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mintButton {
+    outline: none;
+    padding: 5px 50px 5px 50px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff434;
+    box-sizing: border-box;
+    background-color: #1D1D1D;
+}
+
+.plusMinusContainer {
+    width: 150px;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plusButton {
+    outline: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff434;
+    box-sizing: border-box;
+    border: 3px solid;
+    background-color: #1D1D1D;
+}
+
+.minusButton {
+    outline: none;
+    padding-left: 14.5px;
+    padding-right: 14.5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff434;
+    box-sizing: border-box;
+    border: 3px solid;
+    background-color: #1D1D1D;
+}
+
+.counter {
+    all: initial;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #fff434;
+    margin-left: 10px;
+    margin-right: 10px;
+}

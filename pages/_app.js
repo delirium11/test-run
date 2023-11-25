@@ -1,25 +1,55 @@
-import { AppContextProvider } from '@/components/renderCounter'
-import styles from '../styles/globals.css'
-import Navbar from '@/components/navbar'
+import { AppContextProvider } from '@/components/renderCounter';
+import styles from '../styles/globals.css';
+import Navbar from '@/components/navbar';
+import { useEffect, useState } from 'react';
 
-export default function App ({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
+  const [loading, setLoading] = useState(true);
+  const [opacity, setOpacity] = useState(1); // Track opacity for fading animation
 
-    return (
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        setOpacity(0); // Start fading out after 2 seconds
+      }, 100); // Delay fade-out slightly to prevent overlapping with content
+    }
+  }, [loading]);
 
-        <AppContextProvider>
+  useEffect(() => {
+    if (opacity === 0) {
+      setTimeout(() => {
+        // Remove the element after fading out completely
+        setOpacity(null); // Set opacity to null to trigger DOM removal
+      }, 500); // Set fade-out duration to 0.3 seconds (300 milliseconds)
+    }
+  }, [opacity]);
 
-            <div>
-                
-                <title>LLAMAPIX</title>
-
-                <Navbar />
-                
-                <Component {...pageProps} />
-
+  return (
+    <AppContextProvider>
+      <div>
+        {opacity !== null && ( // Render the loader if opacity is not null
+          <div
+            className="loaderWrapper"
+            id="loader-wrapper"
+            style={{ opacity: opacity }} // Dynamically set opacity using state
+          >
+            <img className="loading-image" src="/images/bang.png"/>
+            <div className="loading-bar-wrapper">
+              <div className="loading-bar"></div>
             </div>
+          </div>
+        )}
 
-        </AppContextProvider>
+        <title>TEST WEBSITE</title>
 
-    )
+        <Navbar />
 
+        <Component {...pageProps} />
+      </div>
+    </AppContextProvider>
+  );
 }

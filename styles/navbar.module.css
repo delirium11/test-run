@@ -1,0 +1,91 @@
+.desktopLogo {
+    width: 185px;
+    padding-top: 4.2px;
+    cursor: pointer;
+}
+
+.mobileLogo {
+    display: none;
+}
+
+.navbar {
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px 10px 100px;
+    margin-bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbarA, .navbarLink {
+    cursor: pointer;
+    transition: 0.25s;
+    background: none;
+    line-height: 1;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #fff434;
+}
+
+.navbarButton {
+    cursor: pointer;
+    transition: 0.25s;
+    background: none;
+    line-height: 1;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    color: #fff434;
+    border: 2px solid;
+    margin: 0.5em;
+    padding: 0.15em 0.15em;
+}
+
+.navbarButton:hover, .navbarLink:hover, .navbarA:hover{
+    color: red;
+}
+
+@media only screen and (max-width: 880px) {
+
+    .navbar {
+        padding: 0 0;
+        justify-content: center;
+    }
+
+    .desktopLogo {
+        display: none;
+    }
+
+    .mobileLogo {
+        display: flex;
+        width: 120px;
+        margin-right: 20px;
+    }
+
+    .navbarA, .navbarLink, .navbarButton {
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (min-width: 2550px) {
+    
+    .scaleNavbar{
+        zoom: 150%;
+    }
+
+}
