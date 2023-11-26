@@ -29,9 +29,11 @@ export default function Navbar() {
     if (typeof window !== 'undefined') {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 0) {
-                document.querySelector(`.${styles.navbar}`).classList.add(`${styles.scrolled}`);
+                document.querySelector(`.${styles.navbar}`)
+                .classList.add(`${styles.scrolled}`);
             } else {
-                document.querySelector(`.${styles.navbar}`).classList.remove(`${styles.scrolled}`);
+                document.querySelector(`.${styles.navbar}`)
+                .classList.remove(`${styles.scrolled}`);
             }
         });
     }
