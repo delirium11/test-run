@@ -7,14 +7,30 @@ export default function Roadmap() {
     const [section, setSection] = useState("FuturePlanIsActive");
 
     const hideTheRest = () => {
-        document.querySelector(`.${styles.futurePlans}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.ourThoughts}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.whatLiesAhead}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.tfIsThis}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.heheImage}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.plzImage}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.wastedImage}`).classList.add(`${styles.notActive}`);
-        document.querySelector(`.${styles.wtfImage}`).classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.futurePlans}`)
+            .classList.add(`${styles.notActive}`);
+            
+        document.querySelector(`.${styles.ourThoughts}`)
+            .classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.whatLiesAhead}`)
+            .classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.tfIsThis}`)
+            .classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.heheImage}`)
+            .classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.plzImage}`)
+            .classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.wastedImage}`)
+            .classList.add(`${styles.notActive}`);
+
+        document.querySelector(`.${styles.wtfImage}`)
+            .classList.add(`${styles.notActive}`);
     }
 
     useEffect(() => {
@@ -22,20 +38,36 @@ export default function Roadmap() {
         hideTheRest();
         
         if (section === "FuturePlanIsActive") {
-            document.querySelector(`.${styles.futurePlans}`).classList.remove(`${styles.notActive}`);
-            document.querySelector(`.${styles.heheImage}`).classList.remove(`${styles.notActive}`);
+            
+            document.querySelector(`.${styles.futurePlans}`)
+                .classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.heheImage}`)
+                .classList.remove(`${styles.notActive}`);
 
         } else if (section === "OurThoughtsIsActive") {
-            document.querySelector(`.${styles.ourThoughts}`).classList.remove(`${styles.notActive}`);
-            document.querySelector(`.${styles.plzImage}`).classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.ourThoughts}`)
+                .classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.plzImage}`)
+                .classList.remove(`${styles.notActive}`);
 
         } else if (section === "WhatLiesAheadIsActive") {
-            document.querySelector(`.${styles.whatLiesAhead}`).classList.remove(`${styles.notActive}`);
-            document.querySelector(`.${styles.wastedImage}`).classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.whatLiesAhead}`)
+                .classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.wastedImage}`)
+                .classList.remove(`${styles.notActive}`);
 
         } else if (section === "tfIsThisIsActive") {
-            document.querySelector(`.${styles.tfIsThis}`).classList.remove(`${styles.notActive}`);
-            document.querySelector(`.${styles.wtfImage}`).classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.tfIsThis}`)
+                .classList.remove(`${styles.notActive}`);
+
+            document.querySelector(`.${styles.wtfImage}`)
+                .classList.remove(`${styles.notActive}`);
 
         }
 
@@ -164,3 +196,94 @@ export default function Roadmap() {
     )
     
 }
+
+
+
+
+/*
+
+import styles from "../styles/playzone.module.css"
+
+export default function Playzone() {
+
+    return (
+
+        <div className={styles.RMPageContainer}>
+
+            <div className={styles.RMButtonContainer}>
+
+                <svg className={styles.RMButton1} width="10" height="10">
+
+                    <text x="0" y="10" fill="black">PHASE 1</text>
+
+                </svg>
+
+                <svg className={styles.RMButton2}>
+
+                    
+
+                </svg>
+                
+                <svg className={styles.RMButton3}>
+
+                    
+
+                </svg>
+
+                <svg className={styles.RMButton4}>
+
+                    
+
+                </svg>
+
+            </div>
+
+            <div className={styles.RMDescriptionContainer}>
+
+                <p className={styles.P1Description}>
+
+
+
+                </p>
+
+                <p className={styles.P2Description}>
+
+
+
+                </p>
+
+                <p className={styles.P3Description}>
+
+
+
+                </p>
+
+                <p className={styles.P4Description}>
+
+
+
+                </p>
+                
+            </div>
+
+            <div className={styles.RMImageContainer}>
+
+                <img className={styles.P1Image} />
+                
+                <img className={styles.P2Image} />
+                
+                <img className={styles.P3Image} />
+
+                <img className={styles.P4Image} />
+
+            </div>
+
+
+        </div>
+
+    )
+
+}
+
+
+*/

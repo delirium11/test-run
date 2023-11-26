@@ -22,7 +22,8 @@
     border-radius: 20px;
     position: relative;
     height: 78vh;
-    width: 30vw;
+    width: 80vw;
+    border: solid black 2px;
 }
 
 .roadMapImageContent {
@@ -35,12 +36,14 @@
 }
 
 .roadMapButton1 {
-    width: 28vw;
-    height: 18vh;
+    margin-top: 6vh;
+    width: 15vw;
+    height: 15vh;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
     font-size: 3vw;
     background-color: #9ab97a;
     cursor: pointer;
+    border: solid black 2px;
     border-radius: 20px;
 }
 
@@ -55,8 +58,8 @@
 
 .roadMapButton2 {
     font-size: 100px;
-    width: 28vw;
-    height: 18vh;
+    width: 15vw;
+    height: 15vh;
     margin-top: 2vh;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
     font-size: 3vw;
@@ -76,8 +79,8 @@
 
 .roadMapButton3 {
     font-size: 100px;
-    width: 28vw;
-    height: 18vh;
+    width: 15vw;
+    height: 15vh;
     margin-top: 2vh;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
     font-size: 3vw;
@@ -97,8 +100,8 @@
 
 .roadMapButton4 {
     font-size: 100px;
-    width: 28vw;
-    height: 18vh;
+    width: 15vw;
+    height: 15vh;
     margin-top: 2vh;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold';
     font-size: 3vw;
