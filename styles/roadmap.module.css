@@ -153,8 +153,14 @@
 }
 
 .heheImage {
+    cursor: pointer;
     width: 28vw;
     margin-left: 2vw;
+    transition: transform 0.2s ease-in-out;
+}
+
+.heheImage:hover {
+    transform: scale(1.05);
 }
 
 .plzImage {
