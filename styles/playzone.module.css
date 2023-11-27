@@ -1,16 +1,16 @@
 .RMPageTitle {
-    width: 50vw;
-    margin-top: 10vh;
+    width: 500px;
+    margin-top: 75px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-size: 2vw;
+    font-size: 25px;
 }
 
 .RMSVGContainer {
-    border: solid yellow 2px;
-    width: 90vw;
-    height: 75vh;
+    border: solid yellow 5px;
+    width: 1400px;
+    height: 600px;
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
@@ -21,30 +21,79 @@
 }
 
 .RMIMGContainer {
-    border: solid blue 2px;
+    width: 30%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.RMImageSVG {
+    width: 600px;
+    height: 600px;
+}
+
+.Phase1IMG:hover {
+    width: 325px;
+    height: 325px;
+}
+
+.Phase1IMG {
+    width: 305px;
+    height: 306px;
+    clip-path: url(#RMSVGImageClip);
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.RMDescriptionContainer {
     width: 30%;
     height: 90%;
 }
 
 .RMButtonContainer {
-    border: solid blue 2px;
     width: 30%;
     height: 90%;
-    margin-left: 2.5%;
     margin-right: 2.5%;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.RMDescriptionContainer {
-    border: solid blue 2px;
-    width: 30%;
-    height: 90%;
+.RMButton1:hover{
+    transform: scale(1.1);
 }
 
 .RMButton1 {
-    outline: solid white 2px;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    top: 100px;
-    left: 100px;    
+    width: 325px;
+    margin-top: 30px;
+}
+
+.RMButton2 {
+    width: 325px;
+}
+
+.RMButton3 {
+    width: 325px;
+}
+
+.RMButton4 {
+    width: 325px;
+}
+
+.RMPhaseContainer {
+    width: 410px;
+}
+
+.RMLineContainer1 {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    left: 400px;
+}
+
+.RMLineContainer2 {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    left: 850px;
 }
