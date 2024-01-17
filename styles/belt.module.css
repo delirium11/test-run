@@ -1,12 +1,12 @@
 .animatedBelt {
-    width: 100vw;
-    height: 50px;
+    width: 125vw;
+    height: 30px;
     white-space: nowrap;
 }
 
 .imageBang {
     height: 50px;
-    width: 300px;
+    width: 350px;
     animation: belt 30s infinite linear alternate;
 }
 

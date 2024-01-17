@@ -2,12 +2,11 @@
 
 .homeContent {
     overflow: hidden;
-    margin-top: 6vh;
 }
 
 .titleContainer {
     background-image: url(../public/images/section_background_image.png);
-    height: 600px;
+    height: 750px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -38,6 +37,7 @@
 }
 
 .titleContainer3 {
+    background-image: url(../public/images/container3_background.png);
     display: flex;
     flex-direction: column;
     justify-content: center;
