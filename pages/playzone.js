@@ -64,6 +64,8 @@ export default function Playzone() {
                         
                             fill="#fddce4" stroke="black" stroke-width="2"
 
+                            cursor=""
+
                         />
 
                         <polygon fill="#1D1D1D" stroke="white" strokeWidth="5"

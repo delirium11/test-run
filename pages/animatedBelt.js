@@ -6,34 +6,34 @@ const AnimatedBelt = () => {
 
         <div className={styles.animatedBelt}>   
         
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
-            <img className={styles.imageBang} src="/images/bang.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
+            <img className={styles.imageBang} src="/images/belt.png" alt="bang3" />
 
         </div>
 

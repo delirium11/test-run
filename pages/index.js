@@ -7,11 +7,15 @@ export default function Home() {
 
         <div className={styles.homeContent}>
             
+            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+            <link href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap" rel="stylesheet"></link>
+            
             <div className={styles.titleContainer}>
             
-                <h1 className={styles.homePageTitle}>WELCOME TO LUCKY CHARMS</h1>
+                <h1 className={styles.homePageTitle}>WELCOME TO FEATHERED FASHIONS</h1>
             
-                <img className={styles.homePageImage} src="/images/bang.png" alt="bang2"/>
+                <img className={styles.homePageImage} src="/images/sample_image.png" alt="bang2"/>
 
             </div>
 
@@ -19,39 +23,27 @@ export default function Home() {
 
             <div className={styles.titleContainer2}>
 
-                <h1 className={styles.homePageTitle}>HUH... WHAT? WHAT IS THIS!?</h1>
+                <img className={styles.homePageImage} src="/images/about.png" alt="bang2"/>
 
-                <img className={styles.homePageImage} src="/images/bang.png" alt="bang2"/>
+                <img className={styles.homePageImage} src="/images/welcomer.png" alt="bang2"/>
 
             </div>
             
-            <AnimatedBelt />
-
             <div className={styles.titleContainer3}>
 
-                <h1 className={styles.homePageTitle}>HUH... WHAT? WHAT IS THIS!?</h1>
+                <h1 className={styles.container3_title}>THE JOURNEY</h1>
 
-                <img className={styles.homePageImage} src="/images/bang.png" alt="bang2"/>
+                <h2 className={styles.subTitle32}>
+                    Explore Blue Cat's story and catch up on the 
+                    Journey. Follow Blue and his friends across 
+                    Cooltopia and contribute to the adventure along the way.
+                </h2>
+
+                <img className={styles.roadmap_imagery} src="/images/roadmap_imagery.png" alt="bang2"/>
 
             </div>
-
-            <AnimatedBelt />
 
             <div className={styles.titleContainer4}>
-
-                <h1 className={styles.homePageTitle}>HUH... WHAT? WHAT IS THIS!?</h1>
-
-                <img className={styles.homePageImage} src="/images/bang.png" alt="bang2"/>
-
-            </div>
-
-            <AnimatedBelt />
-
-            <div className={styles.titleContainer5}>
-
-                <h1 className={styles.homePageTitle}>HUH... WHAT? WHAT IS THIS!?</h1>
-
-                <img className={styles.homePageImage} src="/images/bang.png" alt="bang2"/>
 
             </div>
 

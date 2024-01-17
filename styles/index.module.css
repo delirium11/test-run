@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
+
 .homeContent {
     overflow: hidden;
-    margin-top: 7vh;
+    margin-top: 6vh;
 }
 
 .titleContainer {
+    background-image: url(../public/images/section_background_image.png);
     height: 600px;
     display: flex;
     flex-direction: row;
@@ -15,17 +18,18 @@
     color: green;
     width: 600px;
     font-size: 80px;
-    font-family:'Courier New', Courier, monospace;
+    font-family: "Rubik Burned", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .homePageImage {
-    height: 450px;
-    width: 450px;
-    margin-left: 300px;
+    height: 400px;
+    margin-left: 100px;
 }
 
 .titleContainer2 {
-    background-color: grey;
+    background-image: url(../public/images/section_background_image.png);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -34,28 +38,41 @@
 }
 
 .titleContainer3 {
-    background-color: yellow;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 700px;
+}
+
+.container3_title {
+    width: 600px;
+    font-size: 80px;
+    font-family: "Rubik Burned", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.subTitle32 {
+    color: green;
+    width: 800px;
+    font-size: 25px;
+    font-family: "Rubik Burned", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    height: 130px;
+}
+
+.roadmap_imagery {
+    height: 400px;
 }
 
 .titleContainer4 {
-    background-color: red;
+    background-image: url(../public/images/container4_background.png);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 600px;
-}
-
-.titleContainer5 {
-    background-color: blue;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
+    height: 550px;
 }
