@@ -5,35 +5,42 @@
 }
 
 .titleContainer {
-    background-image: url(../public/images/section_background_image.png);
-    height: 750px;
+    background-image: url(../public/images/section_background_imag.png);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 600px;
+    width: 1910px;
+    border: dashed 3px black;
 }
 
 .homePageTitle {
     color: green;
     width: 600px;
     font-size: 80px;
-    font-family: "Rubik Burned", system-ui;
+    font-family: pixelfont,Helvetica Neue,Helvetica,Arial,sans;;
     font-weight: 400;
     font-style: normal;
+    border: dashed 3px black;
 }
 
 .homePageImage {
     height: 400px;
     margin-left: 100px;
+    border: dashed 3px black;
 }
 
 .titleContainer2 {
-    background-image: url(../public/images/section_background_image.png);
+    background-image: url(../public/images/section_background_imag.png);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     height: 600px;
+    width: 1910px;
+    border: dashed 3px black;
 }
 
 .titleContainer3 {
@@ -43,6 +50,8 @@
     justify-content: center;
     align-items: center;
     height: 700px;
+    width: 1910px;
+    border: dashed 3px black;
 }
 
 .container3_title {
@@ -51,7 +60,7 @@
     font-family: "Rubik Burned", system-ui;
     font-weight: 400;
     font-style: normal;
-
+    border: dashed 3px black;
 }
 
 .subTitle32 {
@@ -62,10 +71,12 @@
     font-weight: 400;
     font-style: normal;
     height: 130px;
+    border: dashed 3px black;
 }
 
 .roadmap_imagery {
     height: 400px;
+    border: dashed 3px black;
 }
 
 .titleContainer4 {
@@ -74,5 +85,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 550px;
+    height: 300px;
+    width: 1910px;
 }

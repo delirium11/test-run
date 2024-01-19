@@ -1,7 +1,8 @@
 .animatedBelt {
-    width: 125vw;
+    width: 1910px;
     height: 30px;
     white-space: nowrap;
+    
 }
 
 .imageBang {
@@ -12,9 +13,9 @@
 
 @keyframes belt {
    0% {
-    transform: translateX(-60vw);
+    transform: translateX(-1146px);
    } 
    100% {
-    transform: translateX(-10vw);
+    transform: translateX(-191px);
    }
 }

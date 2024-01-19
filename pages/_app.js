@@ -28,6 +28,19 @@ export default function App({ Component, pageProps }) {
     }
   }, [opacity]);
 
+  useEffect(() => {
+    const body = document.body;
+  
+    if (loading) {
+      body.classList.add('hide-scrollbars');
+    } else {
+      setTimeout(() => {
+        body.classList.remove('hide-scrollbars'); // Remove after fade-out
+      }, 100); // Adjust timing to match fade-out duration
+    }
+  }, [loading]);
+  
+
   return (
     <AppContextProvider>
       <div>

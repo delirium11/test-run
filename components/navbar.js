@@ -40,58 +40,62 @@ export default function Navbar() {
 
     return (
         
-        <div className={styles.navbar}>
+        <div className={styles.navbarContainer}>
 
-            <div>
+            <div className={styles.navbar}>
 
-                <Link href="/"><img className={styles.mobileLogo} 
-                    src="/images/logo_long.png" alt="logo_long"/></Link>
+                <div>
 
-                <Link href="/"><img className={styles.desktopLogo} 
-                    src="/images/logo_long.png" alt="logo_long"/></Link>
+                    <Link href="/"><img className={styles.mobileLogo} 
+                        src="/images/logo_long.png" alt="logo_long"/></Link>
 
-            </div>
+                    <Link href="/"><img className={styles.desktopLogo} 
+                        src="/images/logo_long.png" alt="logo_long"/></Link>
 
-            <div className="navbar_content">
+                </div>
 
-                <button className={styles.navbarButton}>
-                    <Link className={styles.navbarLink} 
-                        href="/">HOME</Link></button>
+                <div className="navbar_content">
 
-                <button className={styles.navbarButton}>
-                    <Link className={styles.navbarLink} 
-                        href="/roadmap">ROADMAP</Link></button>
-                
-                <button className={styles.navbarButton}>
-                    <Link className={styles.navbarLink} 
-                        href="/playzone">PLAYZONE</Link></button>
-                
-                <button className={styles.navbarButton}>
-                    <Link className={styles.navbarLink} 
-                        href="/more">MORE</Link></button>
-                
-                <button className={styles.navbarButton}>
-                    <Link className={styles.navbarLink} 
-                        href="/checker">CHECKER</Link></button>
+                    <button className={styles.navbarButton}>
+                        <Link className={styles.navbarLink} 
+                            href="/">HOME</Link></button>
 
-                <button className={styles.navbarButton}><a className={styles.navbarA}
-                    target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTwitter}/></a></button>
-
-                <button className={styles.navbarButton}><a className={styles.navbarA}
-                    target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faMedium}/></a></button>
+                    <button className={styles.navbarButton}>
+                        <Link className={styles.navbarLink} 
+                            href="/roadmap">ROADMAP</Link></button>
                     
-                <button className={styles.navbarButton}><a className={styles.navbarA}
-                    target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faSailboat}/></a></button>
+                    <button className={styles.navbarButton}>
+                        <Link className={styles.navbarLink} 
+                            href="/playzone">PLAYZONE</Link></button>
+                    
+                    <button className={styles.navbarButton}>
+                        <Link className={styles.navbarLink} 
+                            href="/more">MORE</Link></button>
+                    
+                    <button className={styles.navbarButton}>
+                        <Link className={styles.navbarLink} 
+                            href="/checker">CHECKER</Link></button>
 
-                <button className={styles.navbarButton} 
-                    onClick={useConnectWallet}><a 
-                        className={styles.navbarA}>{status}</a></button>
+                    <button className={styles.navbarButton}><a className={styles.navbarA}
+                        target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faTwitter}/></a></button>
 
+                    <button className={styles.navbarButton}><a className={styles.navbarA}
+                        target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faMedium}/></a></button>
+                        
+                    <button className={styles.navbarButton}><a className={styles.navbarA}
+                        target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faSailboat}/></a></button>
+
+                    <button className={styles.navbarButton} 
+                        onClick={useConnectWallet}><a 
+                            className={styles.navbarA}>{status}</a></button>
+
+                </div>
+                
             </div>
-            
+
         </div>
 
     )
