@@ -80,7 +80,7 @@
 }
 
 .titleContainer4 {
-    background-image: url(../public/images/container4_background.png);
+    background-image: url("https://i.imgur.com/TzwIPAT.png");
     display: flex;
     flex-direction: row;
     justify-content: center;
