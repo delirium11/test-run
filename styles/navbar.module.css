@@ -1,6 +1,11 @@
+@font-face {
+    font-family: tempFont;
+    src: url(/tempFont.ttf);
+}
+
 .desktopLogo {
-    width: 185px;
-    padding-top: 4.2px;
+    width: 130px;
+    padding-top: 30px;
     cursor: pointer;
 }
 
@@ -9,22 +14,21 @@
 }
 
 .navbar {
-    background-color: grey;
+    background-color: #52b6ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 100px 10px 100px;
+    padding: 10px 100px 10px 300px;
     margin-bottom: 0;
-    position: fixed;
     top: 0;
+    left: 0;
     width: 1910px;
-    height: 55px;
+    height: 70px;
     transition: 0.3s ease-in-out;
     z-index: 10;
 }
 
 .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -34,29 +38,34 @@
     background: none;
     line-height: 1;
     text-decoration: none;
-    font-family: sans-serif;
-    font-weight: bolder;
-    font-size: 15px;
-    color: #fff434;
+    font-family: tempFont;
+    font-weight: lighter;
+    font-size: 25px;
+    color: white;
+    padding: 0em .1em;
 }
 
 .navbarButton {
     cursor: pointer;
     transition: 0.25s;
-    background: none;
+    background: #52b6ff;
     line-height: 1;
     text-decoration: none;
     font-family: sans-serif;
-    font-weight: bolder;
-    font-size: 15px;
-    color: #fff434;
-    border: 2px solid;
-    margin: 0.5em;
-    padding: 0.15em 0.15em;
+    font-weight: lighter;
+    font-size: 20px;
+    color: black;
+    border: 0px;
+    border-radius: 4px;
+    margin: 0.7em;
 }
 
-.navbarButton:hover, .navbarLink:hover, .navbarA:hover{
-    color: red;
+.navbarButton:hover{
+    background: #52b6ff;
+}
+
+.navbarA:hover, .navbarLink:hover {
+    color: #d8f4fe;
 }
 
 @media only screen and (max-width: 880px) {
@@ -84,8 +93,16 @@
 
 @media only screen and (min-width: 2550px) {
     
-    .scaleNavbar{
-        zoom: 150%;
+    .navbar{
+        zoom: 133.5%;
+    }
+
+}
+
+@media only screen and (min-width: 3800px) {
+    
+    .navbar{
+        zoom: 200.5%;
     }
 
 }

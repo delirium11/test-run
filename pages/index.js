@@ -7,25 +7,27 @@ export default function Home() {
 
         <div className={styles.homeContent}>
             
-            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
-            <link href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap" rel="stylesheet"></link>
-            
             <div className={styles.titleContainer}>
             
-                <h1 className={styles.homePageTitle}>WELCOME TO FEATHERED FASHIONS</h1>
+                <div className={styles.welcomeTitleContainer}>
+
+                    <h1 className={styles.homePageTitle}>WELCOME TO LUCKY CHARMS</h1>
+
+                    <img className={styles.homePageTitle2} src="/images/openseaButton.png" alt="bang2"/>
+
+                </div>
             
                 <img className={styles.homePageImage} src="/images/sample_image.png" alt="bang2"/>
-
+                
             </div>
 
             <AnimatedBelt />
 
             <div className={styles.titleContainer2}>
 
-                <img className={styles.homePageImage} src="/images/about.png" alt="bang2"/>
+                <img className={styles.aboutImage} src="/images/about.png" alt="bang2"/>
 
-                <img className={styles.homePageImage} src="/images/welcomer.png" alt="bang2"/>
+                <img className={styles.incomingImage} src="/images/welcomer.png" alt="bang2"/>
 
             </div>
             
