@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 2000);
     } else {
       setTimeout(() => {
         setOpacity(0); // Start fading out after 2 seconds
@@ -50,7 +50,7 @@ export default function App({ Component, pageProps }) {
             id="loader-wrapper"
             style={{ opacity: opacity }} // Dynamically set opacity using state
           >
-            <img className="loading-image" src="/images/bang.png"/>
+            <img className="loading-image" src="/images/loading_image.gif"/>
             <div className="loading-bar-wrapper">
               <div className="loading-bar"></div>
             </div>

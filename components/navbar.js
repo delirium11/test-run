@@ -47,8 +47,8 @@ export default function Navbar() {
                 <Link href="/"><img className={styles.mobileLogo} 
                     src="/images/logo_long.png" alt="logo_long"/></Link>
 
-                <Link href="/"><img className={styles.desktopLogo} 
-                    src="/images/logo_long.png" alt="logo_long"/></Link>
+                <Link href="/"><button className={styles.desktopLogo}>
+                    LUCKY CHARMS</button></Link>
 
             </div>
 
@@ -68,7 +68,15 @@ export default function Navbar() {
                     
                 <button className={styles.navbarButton}>
                     <Link className={styles.navbarLink} 
-                        href="/more">MORE</Link></button>
+                        href="/faq">FAQ</Link></button>
+                  
+                <button className={styles.navbarButton}>
+                    <Link className={styles.navbarLink} 
+                        href="/gallery">GALLERY</Link></button>       
+
+                <button className={styles.navbarButton}>
+                    <Link className={styles.navbarLink} 
+                        href="/application">APPLICATION</Link></button> 
 
                 <button className={styles.navbarButton}><a className={styles.navbarA}
                     target="_blank" rel="noopener noreferrer">
@@ -98,10 +106,6 @@ export default function Navbar() {
 <button className={styles.navbarButton}>
     <Link className={styles.navbarLink} 
         href="/mint">MINT</Link></button>
-        
-<button className={styles.navbarButton}>
-    <Link className={styles.navbarLink} 
-        href="/application">APPLICATION</Link></button>
         
 <button className={styles.navbarButton}>
     <Link className={styles.navbarLink} 

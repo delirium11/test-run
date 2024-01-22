@@ -8,16 +8,23 @@ export default function Home() {
         <div className={styles.homeContent}>
             
             <div className={styles.titleContainer}>
-            
+
+            <img className={styles.homePageImage} 
+                src="/images/sample_image.png" alt="bang2"/>
+
                 <div className={styles.welcomeTitleContainer}>
 
                     <h1 className={styles.homePageTitle}>WELCOME TO LUCKY CHARMS</h1>
 
-                    <img className={styles.homePageTitle2} src="/images/openseaButton.png" alt="bang2"/>
+                    <p1 className={styles.homePageSubTitle}>
+                        We invite you to explore our World with us - 
+                        dreams, adventure, and escapism await!
+                    </p1>
+
+                    <img className={styles.homePageTitle2} 
+                        src="/images/openseaButton.png" alt="bang2"/>
 
                 </div>
-            
-                <img className={styles.homePageImage} src="/images/sample_image.png" alt="bang2"/>
                 
             </div>
 
@@ -25,9 +32,22 @@ export default function Home() {
 
             <div className={styles.titleContainer2}>
 
-                <img className={styles.aboutImage} src="/images/about.png" alt="bang2"/>
+                <div className={styles.welcomeTitleContainer}>
 
-                <img className={styles.incomingImage} src="/images/welcomer.png" alt="bang2"/>
+                    <h1 className={styles.aboutTitle}>ABOUT OUR BRAND</h1>
+
+                    <p1 className={styles.aboutSubTitle}>
+                        Boki is a community-focused project centered around 
+                        collaboration and connection. Each Boki grants you 
+                        access to Boki's holder-only Discord channels, 
+                        digital and IRL events, exclusive merch, Boki Web 3 
+                        experiences and more.
+                    </p1>
+
+                </div>
+
+                <img className={styles.incomingImage} 
+                    src="/images/welcomer.png" alt="bang2"/>
 
             </div>
             
@@ -41,7 +61,8 @@ export default function Home() {
                     Cooltopia and contribute to the adventure along the way.
                 </h2>
 
-                <img className={styles.roadmap_imagery} src="/images/roadmap_imagery.png" alt="bang2"/>
+                <img className={styles.roadmap_imagery} 
+                    src="/images/roadmap_imagery.png" alt="bang2"/>
 
             </div>
 

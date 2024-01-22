@@ -15,6 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: darkgray;
+    overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -26,8 +27,8 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgb(131, 131, 240); /* Thumb color */
-  border-radius: 10px; /* Rounded thumb */
+  background: #33a0ee; /* Thumb color */
+  border-radius: 0px; /* Rounded thumb */
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -44,7 +45,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #1D1D1D;
+    background-color: #ffebe2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,7 +59,6 @@ body {
     width: 10%;
     height: 15px;
     position: relative;
-    background-color: #444;
     border-radius: 10px;
 }
 
@@ -71,9 +71,9 @@ body {
 .loading-bar {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #fddb3a 0%, #80369b 100%);
+    background: pink;
     border-radius: 8px;
-    animation: loading-bar 1s linear forwards;
+    animation: loading-bar 2s linear forwards;
 }
 
 @keyframes loading-bar {

@@ -1,16 +1,12 @@
+import styles from "../styles/application.module.css";
 
 export default function Application() {
 
     return (
 
-        <div className="page_content">
+        <div className={styles.applicationPageContainer}>
 
-            <div className="application_page_content">
-
-                <h1>APPLICATION PAGE</h1>
-                <p>THIS IS THE APPLICATION PAGE</p>
-
-            </div>
+            <h1>THIS IS THE APPLICATION PAGE</h1>
 
         </div> 
 
