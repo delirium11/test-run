@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import styles from '../styles/index.module.css'
-import AnimatedBelt from './animatedBelt';
+import AnimatedBelt from '../components/animatedBelt';
 
 export default function Home() {
 
@@ -21,8 +22,9 @@ export default function Home() {
                         dreams, adventure, and escapism await!
                     </p1>
 
-                    <img className={styles.homePageTitle2} 
-                        src="/images/openseaButton.png" alt="bang2"/>
+                    <button className={styles.applicationButton}>
+                        <Link className={styles.applicationLink} 
+                            href="/application">APPLICATION PAGE</Link></button>
 
                 </div>
                 

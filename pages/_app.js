@@ -1,6 +1,6 @@
 import { AppContextProvider } from '@/components/renderCounter';
 import styles from '../styles/globals.css';
-import Navbar from '@/components/navbar';
+import Navbar from '@/pages/navbar';
 import { useEffect, useState } from 'react';
 
 export default function App({ Component, pageProps }) {

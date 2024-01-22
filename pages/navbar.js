@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React, { useState, useEffect, useContext } from "react";
-import { fetchWallet, connectWallet } from './walletFetcher';
+import { fetchWallet, connectWallet } from '../components/walletFetcher';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
 import { faSailboat } from "@fortawesome/free-solid-svg-icons";
-import { AppContext } from './renderCounter';
+import { AppContext } from '../components/renderCounter';
 import styles from "../styles/navbar.module.css";
 
 export default function Navbar() {
