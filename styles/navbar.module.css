@@ -3,20 +3,32 @@
     src: url(../public/happyLuckyFree.ttf);
 }
 
-.desktopLogo {
-    color: black;
-    width: 500px;
-    font-size: 50px;
-    font-family: happyLucky;
-    text-decoration: none;
-    background: none;
-    border: 0px;
-    cursor: pointer;
-    color: #d8f4fe;
+@font-face {
+    font-family: Sobiscuit;
+    src: url(../public/Sobiscuit.ttf);
 }
 
-.mobileLogo {
-    display: none;
+
+@font-face {
+    font-family: ARCO;
+    src: url(../public/ARCO.ttf);
+}
+
+
+@font-face {
+    font-family: Star_Cartoon;
+    src: url(../public/Star_Cartoon.ttf);
+}
+
+
+@font-face {
+    font-family: DAYSANS;
+    src: url(../public/DAYSANS.ttf);
+}
+
+@font-face {
+    font-family: Small_Print;
+    src: url(../public/Small_Print.ttf);
 }
 
 .navbar {
@@ -24,94 +36,73 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 100px 10px 100px;
-    margin-bottom: 0;
-    top: 0;
-    left: 0;
+    padding: 10px 50px 10px 200px;
     width: 1920px;
     height: 70px;
     transition: 0.3s ease-in-out;
-    z-index: 10;
 }
 
-.navbar.scrolled {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.logo {
+    font-size: 50px;
+    font-family: happyLucky;
+    background: none;
+    border: 0px;
+    cursor: pointer;
+    color: #d8f4fe;
 }
 
 .navbarA, .navbarLink {
     cursor: pointer;
     transition: 0.25s;
-    background: none;
-    line-height: 1;
     text-decoration: none;
-    font-family: happyLucky;
+    font-family: Small_Print;
     font-weight: lighter;
     font-size: 25px;
     color: white;
-    padding: 0em .1em;
 }
 
 .navbarButton {
     cursor: pointer;
-    transition: 0.25s;
-    background: #52b6ff;
-    line-height: 1;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-weight: lighter;
-    font-size: 20px;
-    color: black;
+    background: none;
     border: 0px;
-    border-radius: 4px;
-    margin: 0.7em;
-}
-
-.navbarButton:hover{
-    background: #52b6ff;
+    margin: 0em 1em;
 }
 
 .navbarA:hover, .navbarLink:hover {
     color: #d8f4fe;
 }
 
-@media only screen and (max-width: 880px) {
-
-    .navbar {
-        padding: 0 0;
-        justify-content: center;
+@media only screen and (min-width: 769px) {
+    #navbarHiddenDesktop {
+        display: none;
     }
+}
 
-    .desktopLogo {
+@media only screen and (max-width: 768px) {
+
+    #navbarHiddenMobile {
         display: none;
     }
 
-    .mobileLogo {
-        display: flex;
-        width: 120px;
-        margin-right: 20px;
+    .navbar {
+        padding: 10px 2vw 10px 10vw;
+        width: 100vw;
+        height: 5vh;
+    }
+
+    .logo {
+        font-size: 40px;
+        padding-top: 7px;
+        color: white;
+    }
+
+    .navbarButton {
+        margin: 0em .5em;
     }
 
     .navbarA, .navbarLink, .navbarButton {
-        font-size: 14px;
+        font-size: 20px;
+        padding-top: 2.5px;
     }
 
 }
-
-
-/*
-@media only screen and (min-width: 2550px) {
-    
-    .navbar{
-        zoom: 133.5%;
-    }
-
-}
-
-@media only screen and (min-width: 3800px) {
-    
-    .navbar{
-        zoom: 200.5%;
-    }
-
-}
-*/

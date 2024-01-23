@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { fetchWallet, connectWallet } from '../components/walletFetcher';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
-import { faSailboat } from "@fortawesome/free-solid-svg-icons";
+import { faSailboat, faListDots } from "@fortawesome/free-solid-svg-icons";
 import { AppContext } from '../components/renderCounter';
 import styles from "../styles/navbar.module.css";
 
@@ -26,73 +26,77 @@ export default function Navbar() {
             setAddress, setBalance, setStatus, renderCount,setRenderCount);
     }
 
-    if (typeof window !== 'undefined') {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 0) {
-                document.querySelector(`.${styles.navbar}`)
-                .classList.add(`${styles.scrolled}`);
-            } else {
-                document.querySelector(`.${styles.navbar}`)
-                .classList.remove(`${styles.scrolled}`);
-            }
-        });
-    }
-
     return (
         
         <div className={styles.navbar}>
 
             <div>
 
-                <Link href="/"><img className={styles.mobileLogo} 
-                    src="/images/logo_long.png" alt="logo_long"/></Link>
-
-                <Link href="/"><button className={styles.desktopLogo}>
-                    LUCKY CHARMS</button></Link>
+                <Link href="/">
+                    <button className={styles.logo}>LOGO</button>
+                </Link>
 
             </div>
 
-            <div className="navbar_content">
+            <div className="navbarContent">
+                
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
+                    <Link className={styles.navbarLink} 
+                        href="/mint">MINT</Link></button>
+                        
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
+                    <Link className={styles.navbarLink} 
+                        href="/checker">CHECKER</Link></button>
 
-                <button className={styles.navbarButton}>
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
                     <Link className={styles.navbarLink} 
                         href="/">HOME</Link></button>
 
-                <button className={styles.navbarButton}>
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
                     <Link className={styles.navbarLink} 
                         href="/roadmap">ROADMAP</Link></button>
                     
-                <button className={styles.navbarButton}>
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
                     <Link className={styles.navbarLink} 
                         href="/playzone">PLAYZONE</Link></button>
                     
-                <button className={styles.navbarButton}>
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
                     <Link className={styles.navbarLink} 
                         href="/faq">FAQ</Link></button>
                   
-                <button className={styles.navbarButton}>
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
                     <Link className={styles.navbarLink} 
-                        href="/gallery">GALLERY</Link></button>       
+                        href="/gallery">GALLERY</Link></button>
 
-                <button className={styles.navbarButton}>
-                    <Link className={styles.navbarLink} 
-                        href="/application">APPLICATION</Link></button> 
-
-                <button className={styles.navbarButton}><a className={styles.navbarA}
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}><a className={styles.navbarA}
                     target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faTwitter}/></a></button>
 
-                <button className={styles.navbarButton}><a className={styles.navbarA}
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}><a className={styles.navbarA}
                     target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faMedium}/></a></button>
                         
-                <button className={styles.navbarButton}><a className={styles.navbarA}
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}><a className={styles.navbarA}
                     target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faSailboat}/></a></button>
 
                 <button className={styles.navbarButton} 
                     onClick={useConnectWallet}><a 
                         className={styles.navbarA}>{status}</a></button>
+
+                <button className={styles.navbarButton} 
+                    id={styles.navbarHiddenDesktop}><a className={styles.navbarA}>
+                        <FontAwesomeIcon icon={faListDots}/></a></button>
                                     
             </div>
                 
@@ -103,11 +107,13 @@ export default function Navbar() {
 }
 
 /*
-<button className={styles.navbarButton}>
-    <Link className={styles.navbarLink} 
-        href="/mint">MINT</Link></button>
-        
-<button className={styles.navbarButton}>
-    <Link className={styles.navbarLink} 
-        href="/checker">CHECKER</Link></button>
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
+                    <Link className={styles.navbarLink} 
+                        href="/mint">MINT</Link></button>
+                        
+                <button className={styles.navbarButton}
+                    id={styles.navbarHiddenMobile}>
+                    <Link className={styles.navbarLink} 
+                        href="/checker">CHECKER</Link></button>
 */

@@ -13,12 +13,22 @@
     src: url(../public/application_font.ttf);
 }
 
-.homeContent {
+@font-face {
+    font-family: DAYSANS;
+    src: url(../public/DAYSANS.ttf);
+}
+
+@font-face {
+    font-family: Small_Print;
+    src: url(../public/Small_Print.ttf);
+}
+
+.homePageContainer {
     overflow-x: hidden;
 }
 
-.titleContainer {
-    background-color: white;
+.sectionOne {
+    background-color: #ffebe2;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,37 +37,49 @@
     width: 1920px;
 }
 
-.welcomeTitleContainer {
+.sectionOneImage {
+    height: 400px;
+    width: 700px;
+    margin-right: 50px;
+    border: 2px dashed black;
+}
+
+.sectionOneTextAndButtonContainer {
+    height: 400px;
+    width: 710px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 2px dashed black;
+}
+
+.sectionOneTitleAndSub {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    gap: 10px;
 }
 
-.homePageTitle {
-    color: black;
-    width: 500px;
-    font-size: 70px;
-    font-family: happyLucky;
-    text-align: center;
-}
-
-.homePageSubTitle {
+.sectionOneTitle {
     color: #1e191a;
-    width: 500px;
+    width: 600px;
+    font-size: 90px;
+    font-family: Small_Print;
+}
+
+.sectionOneSubTitle {
+    color: #1e191a;
+    width: 700px;
     font-size: 25px;
     font-family: georgeCafe;
     font-weight: bold;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 30px;
 }
 
 .applicationButton {
     background: none;
     border: 0;
-    border-radius: 30px;
-    padding: 0.3em 1em;
+    border-radius: 10px;
+    padding: 0.3em .05em;
     font-family: applicationFont;
     font-size: 30px;
     background-color: #ffb8d9;
@@ -67,6 +89,10 @@
 .applicationLink {
     text-decoration: none;
     color: white;
+    background: none;
+    border: 0;
+    border-radius: 10px;
+    padding: 0.3em 1em;
 }
 
 .applicationButton:hover {
@@ -77,12 +103,14 @@
     background-color: #f8348f;
 }
 
-.homePageImage {
-    height: 400px;
-    margin-right: 200px;
+.applicationButtonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
 }
 
-.titleContainer2 {
+.sectionTwo {
     background-color: #caf3ed;
     display: flex;
     flex-direction: row;
@@ -93,15 +121,24 @@
     width: 1920px;
 }
 
-.aboutTitle {
+.sectionTwoTextContainer {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sectionTwoTitle {
     color: #1e191a;
     width: 600px;
-    font-size: 60px;
-    font-family: tempFont;
+    font-size: 70px;
+    font-family: happyLucky;
     text-align: center;
 }
 
-.aboutSubTitle {
+.sectionTwoSubTitle {
     color: #1e191a;
     width: 500px;
     font-size: 25px;
@@ -111,12 +148,12 @@
     padding-top: 10px;
 }
 
-.incomingImage {
+.sectionTwoImage {
     padding-left: 100px;
 }
 
-.titleContainer3 {
-    background-image: url("https://i.imgur.com/oYjuZ16.png");
+.sectionThree {
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,38 +162,66 @@
     width: 1920px;
 }
 
-.container3_title {
-    width: 600px;
-    font-size: 80px;
-    font-family: "Rubik Burned", system-ui;
-    font-weight: 400;
-    font-style: normal;
+.sectionThreeTitleSubAndImageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
-.subTitle32 {
-    color: green;
+.sectionThreeTitleAndSub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sectionThreeTitle {
+    color: #1e191a;
+    width: 600px;
+    font-size: 70px;
+    font-family: happyLucky;
+    text-align: center;
+}
+
+.sectionThreeSubTitle {
+    color: #1e191a;
     width: 800px;
     font-size: 25px;
-    font-family: "Rubik Burned", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    height: 130px;
+    font-family: georgeCafe;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
 }
 
-.roadmap_imagery {
+.sectionThreeImage {
     height: 400px;
 }
 
 .titleContainer4 {
-    background-image: url("https://i.imgur.com/TzwIPAT.png");
-    height: 400px;
+    overflow: hidden;
+    height: 300px;
     width: 1920px;
+}
+
+.sectionFourImage {
+    width: 1920px;
+}
+
+@media only screen and (max-width: 880px) {
+
+    .homePageContainer {
+        display: none;
+    }
+
 }
 
 /*
 @media only screen and (min-width: 2550px) {
     
-    .homeContent{
+    .homePageContainer{
         zoom: 133.5%;
     }
 
@@ -164,7 +229,7 @@
 
 @media only screen and (min-width: 3800px) {
     
-    .homeContent{
+    .homePageContainer{
         zoom: 200.5%;
     }
 
