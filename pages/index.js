@@ -27,11 +27,16 @@ export default function Home() {
                     
                     </div>
 
-                    <div className={styles.applicationButtonContainer}>
+                    <div className={styles.sectionOneButtonContainer}>
 
-                        <button className={styles.applicationButton}>
-                            <Link className={styles.applicationLink} 
-                                href="/application">WHITELIST APPLICATION </Link>
+                        <button className={styles.sectionOneButton}>
+                            <Link className={styles.sectionOneButtonLink} 
+                                href="/mint">MINT</Link>
+                        </button>
+
+                        <button className={styles.sectionOneButton}>
+                            <Link className={styles.sectionOneButtonLink} 
+                                href="/checker">WALLET CHECKER</Link>
                         </button>
 
                     </div>
@@ -105,13 +110,18 @@ export default function Home() {
 
 
 /*
-                        <button className={styles.applicationButton}>
-                            <Link className={styles.applicationLink} 
-                                href="/application">MINT</Link>
+                        <button className={styles.sectionOneButton}>
+                            <Link className={styles.sectionOneButtonLink} 
+                                href="/application">WHITELIST APPLICATION </Link>
                         </button>
 
-                        <button className={styles.applicationButton}>
-                            <Link className={styles.applicationLink} 
-                                href="/application">WALLET CHECKER</Link>
+                        <button className={styles.sectionOneButton}>
+                            <Link className={styles.sectionOneButtonLink} 
+                                href="/mint">MINT</Link>
+                        </button>
+
+                        <button className={styles.sectionOneButton}>
+                            <Link className={styles.sectionOneButtonLink} 
+                                href="/checker">WALLET CHECKER</Link>
                         </button>
 */
