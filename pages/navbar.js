@@ -39,16 +39,6 @@ export default function Navbar() {
             </div>
 
             <div className="navbarContent">
-                
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/mint">MINT</Link></button>
-                        
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/checker">CHECKER</Link></button>
 
                 <button className={styles.navbarButton}
                     id={styles.navbarHiddenMobile}>

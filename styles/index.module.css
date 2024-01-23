@@ -50,7 +50,6 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    border: 2px dashed black;
 }
 
 .sectionOneTitleAndSub {
@@ -80,8 +79,8 @@
     border: 0;
     border-radius: 10px;
     padding: 0.3em .05em;
-    font-family: applicationFont;
-    font-size: 30px;
+    font-family: Small_Print;
+    font-size: 35px;
     background-color: #ffb8d9;
     transition: 0.25s;
 }
@@ -92,7 +91,7 @@
     background: none;
     border: 0;
     border-radius: 10px;
-    padding: 0.3em 1em;
+    padding: 0.3em .5em;
 }
 
 .applicationButton:hover {
@@ -210,7 +209,7 @@
     width: 1920px;
 }
 
-@media only screen and (max-width: 880px) {
+@media only screen and (max-width: 769px) {
 
     .homePageContainer {
         display: none;

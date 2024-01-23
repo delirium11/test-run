@@ -31,12 +31,7 @@ export default function Home() {
 
                         <button className={styles.applicationButton}>
                             <Link className={styles.applicationLink} 
-                                href="/application">MINT</Link>
-                        </button>
-
-                        <button className={styles.applicationButton}>
-                            <Link className={styles.applicationLink} 
-                                href="/application">CHECKER</Link>
+                                href="/application">WHITELIST APPLICATION </Link>
                         </button>
 
                     </div>
@@ -107,3 +102,16 @@ export default function Home() {
     )
 
 }
+
+
+/*
+                        <button className={styles.applicationButton}>
+                            <Link className={styles.applicationLink} 
+                                href="/application">MINT</Link>
+                        </button>
+
+                        <button className={styles.applicationButton}>
+                            <Link className={styles.applicationLink} 
+                                href="/application">WALLET CHECKER</Link>
+                        </button>
+*/
