@@ -7,6 +7,10 @@ export default function Home() {
     return (
 
         <div className={styles.homePageContainer}>
+
+
+            <img className={styles.sectionOneBackgroundImage} 
+                src="/images/indexBackground.jpg" alt="sectionTwoImage"/>
             
             <div className={styles.sectionOne}>
 
@@ -31,12 +35,7 @@ export default function Home() {
 
                         <button className={styles.sectionOneButton}>
                             <Link className={styles.sectionOneButtonLink} 
-                                href="/mint">MINT</Link>
-                        </button>
-
-                        <button className={styles.sectionOneButton}>
-                            <Link className={styles.sectionOneButtonLink} 
-                                href="/checker">WALLET CHECKER</Link>
+                                href="/application">WHITELIST APPLICATION </Link>
                         </button>
 
                     </div>
@@ -45,7 +44,13 @@ export default function Home() {
                 
             </div>
 
-            <AnimatedBelt />
+            <div className={styles.homePageBelt}>
+
+                <AnimatedBelt />
+            
+            </div>
+
+            
 
             <div className={styles.sectionTwo}>
 
@@ -95,7 +100,7 @@ export default function Home() {
 
             </div>
 
-            <div className={styles.titleContainer4}>
+            <div className={styles.sectionFour}>
 
                 <img className={styles.sectionFourImage} 
                         src="/images/container4_background.png" alt="sectionFourImage"/>

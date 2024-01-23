@@ -4,29 +4,6 @@
 }
 
 @font-face {
-    font-family: Sobiscuit;
-    src: url(../public/Sobiscuit.ttf);
-}
-
-
-@font-face {
-    font-family: ARCO;
-    src: url(../public/ARCO.ttf);
-}
-
-
-@font-face {
-    font-family: Star_Cartoon;
-    src: url(../public/Star_Cartoon.ttf);
-}
-
-
-@font-face {
-    font-family: DAYSANS;
-    src: url(../public/DAYSANS.ttf);
-}
-
-@font-face {
     font-family: Small_Print;
     src: url(../public/Small_Print.ttf);
 }
@@ -51,7 +28,14 @@
     color: #d8f4fe;
 }
 
-.navbarA, .navbarLink {
+.navbar button {
+    cursor: pointer;
+    background: none;
+    border: 0px;
+    margin: 0em 1em;
+}
+
+.navbar a, .navbar link {
     cursor: pointer;
     transition: 0.25s;
     text-decoration: none;
@@ -61,48 +45,58 @@
     color: white;
 }
 
-.navbarButton {
-    cursor: pointer;
-    background: none;
-    border: 0px;
-    margin: 0em 1em;
-}
-
-.navbarA:hover, .navbarLink:hover {
+.navbar a:hover, .navbar link:hover {
     color: #d8f4fe;
 }
 
 @media only screen and (min-width: 769px) {
-    #navbarHiddenDesktop {
+    .navbarMobile {
         display: none;
     }
 }
 
 @media only screen and (max-width: 768px) {
 
-    #navbarHiddenMobile {
+    .navbarDesktop {
         display: none;
     }
 
     .navbar {
-        padding: 10px 2vw 10px 10vw;
+        padding: 1vh 5vw 1vh 5vw;
         width: 100vw;
         height: 7vh;
     }
 
     .logo {
+        padding-top: 1vh;
         font-size: 40px;
-        padding-top: 7px;
         color: white;
     }
 
-    .navbarButton {
-        margin: 0em .5em;
+    .navbar button {
+        margin: 0.5em 0.5em;
     }
 
-    .navbarA, .navbarLink, .navbarButton {
-        font-size: 20px;
-        padding-top: 2.5px;
+    .dropDownContent {
+        position: absolute;
+        top: 7vh;
+        right: 0vw;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(2px);
+    }
+
+    .dropDownSocials {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navbarMobile:hover .dropDownContent {
+        display: flex;
     }
 
 }
+
+/*USE USESTATE FOR CLICKABILITY */

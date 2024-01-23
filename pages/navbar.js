@@ -26,70 +26,80 @@ export default function Navbar() {
             setAddress, setBalance, setStatus, renderCount,setRenderCount);
     }
 
+    
+
     return (
         
         <div className={styles.navbar}>
 
             <div>
-
+                
                 <Link href="/">
                     <button className={styles.logo}>LOGO</button>
                 </Link>
 
             </div>
 
-            <div className="navbarContent">
+            <div className={styles.navbarDesktop}>
 
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/">HOME</Link></button>
+                <button><Link href="/">HOME</Link></button>
 
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/roadmap">ROADMAP</Link></button>
+                <button><Link href="/roadmap">ROADMAP</Link></button>
                     
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/playzone">PLAYZONE</Link></button>
+                <button><Link href="/playzone">PLAYZONE</Link></button>
                     
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/faq">FAQ</Link></button>
+                <button><Link href="/faq">FAQ</Link></button>
                   
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/gallery">GALLERY</Link></button>
+                <button><Link href="/gallery">GALLERY</Link></button>
 
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}><a className={styles.navbarA}
-                    target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faTwitter}/></a></button>
+                <button><a target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faTwitter}/></a></button>
 
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}><a className={styles.navbarA}
-                    target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faMedium}/></a></button>
+                <button><a target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faMedium}/></a></button>
                         
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}><a className={styles.navbarA}
-                    target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faSailboat}/></a></button>
+                <button><a target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faSailboat}/></a></button>
 
-                <button className={styles.navbarButton} 
-                    onClick={useConnectWallet}><a 
-                        className={styles.navbarA}>{status}</a></button>
-
-                <button className={styles.navbarButton} 
-                    id={styles.navbarHiddenDesktop}><a className={styles.navbarA}>
-                        <FontAwesomeIcon icon={faListDots}/></a></button>
+                <button onClick={useConnectWallet}><a>{status}</a></button>
                                     
             </div>
-                
+
+            <div className={styles.navbarMobile}>
+
+                <button onClick={useConnectWallet}><a>{status}</a></button>
+
+                <button><a><FontAwesomeIcon icon={faListDots}/></a></button>
+
+                <div className={styles.dropDownContent}>
+
+                    <button><Link href="/">HOME</Link></button>
+
+                    <button><Link href="/roadmap">ROADMAP</Link></button>
+                        
+                    <button><Link href="/playzone">PLAYZONE</Link></button>
+                        
+                    <button><Link href="/faq">FAQ</Link></button>
+                    
+                    <button><Link href="/gallery">GALLERY</Link></button>
+
+                    <div className={styles.dropDownSocials}>
+
+                        <button><a target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faTwitter}/></a></button>
+
+                        <button><a target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faMedium}/></a></button>
+                                
+                        <button><a target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faSailboat}/></a></button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     )
@@ -97,13 +107,6 @@ export default function Navbar() {
 }
 
 /*
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/mint">MINT</Link></button>
-                        
-                <button className={styles.navbarButton}
-                    id={styles.navbarHiddenMobile}>
-                    <Link className={styles.navbarLink} 
-                        href="/checker">CHECKER</Link></button>
+    <button><Link href="/mint">MINT</Link></button>
+    <button><Link href="/checker">CHECKER</Link></button>
 */

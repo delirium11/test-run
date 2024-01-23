@@ -198,7 +198,7 @@
     height: 400px;
 }
 
-.titleContainer4 {
+.sectionFour {
     overflow: hidden;
     height: 300px;
     width: 1920px;
@@ -208,10 +208,43 @@
     width: 1920px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (min-width: 769px) {
+    .sectionOneBackgroundImage {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .sectionOne {
+        display: none;
+    }
+
+    .sectionTwo {
+        display: none;
+    }
+
+    .sectionThree {
+        display: none;
+    }
+
+    .sectionFour {
+        display: none;
+    }
+
+    .homePageBelt {
+        display: none;
+    }
 
     .homePageContainer {
-        display: none;
+        height: 70vh;
+        width: 100vw;
+    }
+
+    .sectionOneBackgroundImage {
+        height: 69vh;
+        width: 100vw;
+        object-fit: fill;
     }
 
 }
