@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { fetchWallet, connectWallet } from '../components/walletFetcher';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faMedium } from "@fortawesome/free-brands-svg-icons";
-import { faSailboat, faListDots } from "@fortawesome/free-solid-svg-icons";
+import { faSailboat, faListDots, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { AppContext } from '../components/renderCounter';
 import styles from "../styles/navbar.module.css";
 
@@ -16,6 +16,7 @@ export default function Navbar() {
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
+    const [ visible, setVisible ] = useState(false);
 
     useEffect(() => { 
         fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
@@ -26,7 +27,9 @@ export default function Navbar() {
             setAddress, setBalance, setStatus, renderCount,setRenderCount);
     }
 
-    
+    function setVisibility () {
+        setVisible(!visible);
+    }
 
     return (
         
@@ -69,34 +72,39 @@ export default function Navbar() {
 
                 <button onClick={useConnectWallet}><a>{status}</a></button>
 
-                <button><a><FontAwesomeIcon icon={faListDots}/></a></button>
+                <button onClick={setVisibility}><a>
+                    <FontAwesomeIcon icon={faListDots}/></a></button>
 
-                <div className={styles.dropDownContent}>
+                {visible && (
 
-                    <button><Link href="/">HOME</Link></button>
+                    <div className={styles.dropDownContent}>
 
-                    <button><Link href="/roadmap">ROADMAP</Link></button>
+                        <button><Link href="/">HOME</Link></button>
+
+                        <button><Link href="/roadmap">ROADMAP</Link></button>
+                            
+                        <button><Link href="/playzone">PLAYZONE</Link></button>
+                            
+                        <button><Link href="/faq">FAQ</Link></button>
                         
-                    <button><Link href="/playzone">PLAYZONE</Link></button>
-                        
-                    <button><Link href="/faq">FAQ</Link></button>
-                    
-                    <button><Link href="/gallery">GALLERY</Link></button>
+                        <button><Link href="/gallery">GALLERY</Link></button>
 
-                    <div className={styles.dropDownSocials}>
+                        <div className={styles.dropDownSocials}>
 
-                        <button><a target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faTwitter}/></a></button>
+                            <button><a target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faTwitter}/></a></button>
 
-                        <button><a target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faMedium}/></a></button>
-                                
-                        <button><a target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faSailboat}/></a></button>
+                            <button><a target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faMedium}/></a></button>
+                                    
+                            <button><a target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon={faSailboat}/></a></button>
+
+                        </div>
 
                     </div>
 
-                </div>
+                )}
 
             </div>
 

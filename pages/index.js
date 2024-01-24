@@ -8,7 +8,6 @@ export default function Home() {
 
         <div className={styles.homePageContainer}>
 
-
             <img className={styles.sectionOneBackgroundImage} 
                 src="/images/indexBackground.jpg" alt="sectionTwoImage"/>
             
@@ -49,8 +48,6 @@ export default function Home() {
                 <AnimatedBelt />
             
             </div>
-
-            
 
             <div className={styles.sectionTwo}>
 

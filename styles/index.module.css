@@ -216,19 +216,8 @@
 
 @media only screen and (max-width: 768px) {
 
-    .sectionOne {
-        display: none;
-    }
-
-    .sectionTwo {
-        display: none;
-    }
-
-    .sectionThree {
-        display: none;
-    }
-
-    .sectionFour {
+    .sectionOne, .sectionTwo, 
+        .sectionThree, .sectionFour {
         display: none;
     }
 
