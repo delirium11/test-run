@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from '../styles/index.module.css'
+import AnimatedBelt from '../components/animatedBelt';
 
 export default function Home() {
 
@@ -9,64 +10,38 @@ export default function Home() {
             
             <div className={styles.sectionOne}>
 
-                <div className={styles.sectionOneTextAndButtonContainer}>
+                <div>
 
-                    <div className={styles.sectionOneTitleAndSub}>
+                    <h1>WELCOME TO LUCKY CHARMS</h1>
 
-                        <h1 className={styles.sectionOneTitle}>
-                            WELCOME TO LUCKY CHARMS
-                        </h1>
+                    <p1>
+                        We invite you to explore our World with us - 
+                        dreams, adventure, and escapism await!
+                    </p1>
 
-                        <p1 className={styles.sectionOneSubTitle}>
-                            We invite you to explore our World with us - 
-                            dreams, adventure, and escapism await!
-                        </p1>
-                    
-                    </div>
+                    <nav>
 
-                    <div className={styles.sectionOneButtonContainer}>
+                        <Link href="/application">WHITELIST APPLICATION</Link>
 
-                        <button className={styles.sectionOneButton}>
-                            <Link className={styles.sectionOneButtonLink} 
-                                href="/application">WHITELIST APPLICATION </Link>
-                        </button>
-
-                    </div>
+                    </nav>
 
                 </div>
 
-                <div className={styles.sectionOneImage}></div>
-                
-            </div>
-
-            <div className={styles.animatedBelt}>
-            
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
-                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <div><img src="/images/sample_image.png"/></div>
 
             </div>
+
+            <AnimatedBelt/>
 
             <div className={styles.sectionTwo}>
 
-                <img className={styles.sectionTwoImage} 
-                    src="/images/welcomer.png" alt="sectionTwoImage"/>
+                <div><img src="/images/welcomer.png" alt="sectionTwoImage"/></div>
 
+                <div>
 
-                <div className={styles.sectionTwoTextContainer}>
+                    <h1>ABOUT OUR BRAND</h1>
 
-                    <h1 className={styles.sectionTwoTitle}>
-                        ABOUT OUR BRAND
-                    </h1>
-
-                    <p1 className={styles.sectionTwoSubTitle}>
+                    <p1>
                         Boki is a community-focused project centered around 
                         collaboration and connection. Each Boki grants you 
                         access to Boki's holder-only Discord channels, 
@@ -77,37 +52,29 @@ export default function Home() {
                 </div>
 
             </div>
-            
+
             <div className={styles.sectionThree}>
 
-                <div className={styles.sectionThreeTitleSubAndImageContainer}>
-                    
-                    <div className={styles.sectionThreeTitleAndSub}>
+                <div>
 
-                        <h1 className={styles.sectionThreeTitle}>
-                            THE JOURNEY
-                        </h1>
+                    <h1>THE JOURNEY</h1>
 
-                        <h2 className={styles.sectionThreeSubTitle}>
-                            Explore Blue Cat's story and catch up on the 
-                            Journey. Follow Blue and his friends across 
-                            Cooltopia and contribute to the adventure along the way.
-                        </h2>
+                    <p1>
+                        Explore Blue Cat's story and catch up on the 
+                        Journey. Follow Blue and his friends across 
+                        Cooltopia and contribute to the adventure along the way.
+                    </p1>
 
-                    </div>
-
-                    <img className={styles.sectionThreeImage} 
-                        src="/images/roadmap_imagery.png" alt="sectionThreeImage"/>
-                
                 </div>
+
+                <div><img src="/images/roadmap_imagery.png"/></div>
 
             </div>
 
-            <div className={styles.sectionFour}>
+            <div className={styles.sectionFour}></div>
 
-                <img className={styles.sectionFourImage} 
-                        src="/images/container4_background.png" alt="sectionFourImage"/>
-
+            <div className={styles.sectionFive}>
+                <div><img src="/images/container4_background.png"/></div>
             </div>
 
         </div>
@@ -118,18 +85,9 @@ export default function Home() {
 
 
 /*
-                        <button className={styles.sectionOneButton}>
-                            <Link className={styles.sectionOneButtonLink} 
-                                href="/application">WHITELIST APPLICATION </Link>
-                        </button>
+<Link href="/application">WHITELIST APPLICATION</Link>
 
-                        <button className={styles.sectionOneButton}>
-                            <Link className={styles.sectionOneButtonLink} 
-                                href="/mint">MINT</Link>
-                        </button>
+<Link href="/mint">MINT</Link>
 
-                        <button className={styles.sectionOneButton}>
-                            <Link className={styles.sectionOneButtonLink} 
-                                href="/checker">WALLET CHECKER</Link>
-                        </button>
+<Link href="/checker">WALLET CHECKER</Link>
 */

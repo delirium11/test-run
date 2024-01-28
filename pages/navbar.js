@@ -39,6 +39,9 @@ export default function Navbar() {
 
             <nav>
 
+                <a className={styles.connectButtonMobile} 
+                    onClick={useConnectWallet}>{status}</a>
+
                 <Link href="/">HOME</Link>
 
                 <Link href="/roadmap">ROADMAP</Link>
@@ -62,7 +65,8 @@ export default function Navbar() {
 
                 </div>
 
-                <a onClick={useConnectWallet}>{status}</a>
+                <a className={styles.connectButtonDesktop} 
+                    onClick={useConnectWallet}>{status}</a>
 
             </nav>
 

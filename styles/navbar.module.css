@@ -38,7 +38,7 @@
 
 @media only screen and (min-width: 769px) {
 
-    .navbar label, .navbar input {
+    .navbar label, .navbar input, .connectButtonMobile {
         display: none;
     }
 
@@ -46,6 +46,10 @@
 
 @media only screen and (max-width: 768px) {
 
+    .connectButtonDesktop {
+        display: none;
+    }
+    
     .navbar {
         width: 100vw;
         height: 7vh;
@@ -63,12 +67,17 @@
         background-color: pink;
         opacity: 0;
         transition: 0.25s;
+        z-index: 2;
     }
 
-    .navbar nav a, .navbar nav div {
+    .navbar nav a {
         margin: 0.5em 0em;
         font-size: 25px;
         gap: 15px;
+    }
+
+    .navbar nav div a {
+        margin: 0.5em 0.4em;
     }
 
     .navbar input {
@@ -91,3 +100,21 @@
     }
     
 }
+
+/*
+@media only screen and (min-width: 2550px) {
+    
+    .navbar {
+        zoom: 133.5%;
+    }
+
+}
+
+@media only screen and (min-width: 3800px) {
+    
+    .navbar {
+        zoom: 200.5%;
+    }
+
+}
+*/

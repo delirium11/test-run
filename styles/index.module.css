@@ -1,4 +1,9 @@
 @font-face {
+    font-family: happyLucky;
+    src: url(../public/happyLuckyFree.ttf);
+}
+
+@font-face {
     font-family: georgeCafe;
     src: url(../public/georgeCafe.ttf);
 }
@@ -8,237 +13,173 @@
     src: url(../public/Small_Print.ttf);
 }
 
-.sectionOne {
-    background-color: #ffebe2;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
+.sectionOne, .sectionTwo, .sectionThree, .sectionFour {
     width: 1920px;
-    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.sectionOneImage {
+.sectionOne {
+    height: 500px;
+    background-color: #ffebe2;
+    flex-direction: row;
+}
+
+.sectionOne div:nth-child(1), .sectionOne div:nth-child(2) {
     height: 400px;
     width: 700px;
-    border: 2px dashed black;
-}
-
-.sectionOneTextAndButtonContainer {
-    border: 2px dashed black;
-
-    height: 400px;
-    width: 710px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    overflow: hidden;
+    margin: 0px 30px;
 }
 
-.sectionOneTitleAndSub {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.sectionOneTitle {
-    color: #1e191a;
-    width: 600px;
-    font-size: 90px;
+.sectionOne div:nth-child(1) h1 {
     font-family: Small_Print;
+    font-size: 90px;
     text-align: center;
+    color: #1e191a;
 }
 
-.sectionOneSubTitle {
-    color: #1e191a;
-    width: 700px;
-    font-size: 25px;
+.sectionOne div:nth-child(1) p1 {
     font-family: georgeCafe;
     font-weight: bold;
+    font-size: 25px;
     text-align: center;
+    margin-top: 20px;
 }
 
-.sectionOneButton {
-    background: none;
-    border: 0;
-    border-radius: 10px;
-    padding: 0.3em .05em;
+.sectionOne div:nth-child(1) nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.sectionOne div:nth-child(1) nav a {
+    text-decoration: none;
     font-family: Small_Print;
     font-size: 35px;
-    background-color: #ffb8d9;
-    transition: 0.25s;
-}
-
-.sectionOneButtonLink {
-    text-decoration: none;
     color: white;
-    background: none;
-    border: 0;
+    background-color: #ffb8d9;
     border-radius: 10px;
-    padding: 0.3em .5em;
+    padding: 0.3em 0.5em;
+    transition: 0.25s;
+    margin: 0px 30px;
 }
 
-.sectionOneButton:hover {
+.sectionOne div:nth-child(1) nav a:hover {
     background-color: #f688bb;
 }
 
-.sectionOneButton:active {
+.sectionOne div:nth-child(1) nav a:active {
     background-color: #f8348f;
 }
 
-.sectionOneButtonContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
-
-.animatedBelt {
-    border: 2px dashed black;
-    width: 1920px;
-    height: 30px;
-    white-space: nowrap;
-}
-
-.imageBelt {
-    height: 50px;
-    width: 350px;
-    animation: belt 30s infinite linear alternate;
-}
-
-@keyframes belt {
-   0% {
-    transform: translateX(-1150px);
-   } 
-   100% {
-    transform: translateX(-200px);
-   }
+.sectionOne div:nth-child(2) img {
+    width: 100%;
 }
 
 .sectionTwo {
-    background-color: #caf3ed;
-    display: flex;
+    height: 500px;
+    background-color: #bfbff9;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    height: 600px;
-    width: 1920px;
-    gap: 20px;
 }
 
-.sectionTwoTextContainer {
-    border: 2px dashed black;
-
+.sectionTwo div:nth-child(1), .sectionTwo div:nth-child(2) {
     height: 400px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    overflow: hidden;
+    margin: 0px 30px;
 }
 
-.sectionTwoTitle {
-    color: #1e191a;
-    width: 600px;
-    font-size: 70px;
+.sectionTwo div:nth-child(1) img {
+    width: 100%;
+}
+
+.sectionTwo div:nth-child(2) h1 {
     font-family: happyLucky;
+    font-size: 90px;
     text-align: center;
+    color: #1e191a;
 }
 
-.sectionTwoSubTitle {
-    color: #1e191a;
-    width: 500px;
-    font-size: 25px;
+.sectionTwo div:nth-child(2) p1 {
     font-family: georgeCafe;
     font-weight: bold;
+    font-size: 25px;
     text-align: center;
-    padding-top: 10px;
-}
-
-.sectionTwoImage {
-    border: 2px dashed black;
-
-    padding-left: 100px;
+    color: #1e191a;
+    margin-top: 20px;
 }
 
 .sectionThree {
-    background-color: white;
+    height: 1000px;
+    background-color: #f8bcbc;
+    flex-direction: column;
+}
+
+.sectionThree div:nth-child(1) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 700px;
-    width: 1920px;
 }
 
-.sectionThreeTitleSubAndImageContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.sectionThreeTitleAndSub {
-    border: 2px dashed black;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.sectionThreeTitle {
-    color: #1e191a;
-    width: 600px;
-    font-size: 70px;
+.sectionThree div:nth-child(1) h1 {
     font-family: happyLucky;
-    text-align: center;
+    font-size: 80px;
 }
 
-.sectionThreeSubTitle {
-    color: #1e191a;
-    width: 800px;
-    font-size: 25px;
+.sectionThree div:nth-child(1) p1 {
     font-family: georgeCafe;
     font-weight: bold;
+    font-size: 30px;
+    width: 800px;
     text-align: center;
-    padding-top: 10px;
+    margin-top: 20px;
 }
 
-.sectionThreeImage {
-    border: 2px dashed black;
+.sectionThree div:nth-child(2) {
+    height: 630px;
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 50px;
+}
 
-    height: 400px;
+.sectionThree div:nth-child(2) img {
+    width: 100%;
 }
 
 .sectionFour {
-    overflow: hidden;
+    height: 500px;
+    background-color: white;
+}
+
+.sectionFive {
     height: 300px;
     width: 1920px;
+    overflow: hidden;
 }
 
-.sectionFourImage {
-    width: 1920px;
-}
-
-@media only screen and (min-width: 769px) {
-
-    .homePageContainer {
-        overflow-x: hidden;
-    }
-    
+.sectionFive div:nth-child(1) img {
+    width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
 
     .homePageContainer {
-        display: none;
+        zoom: 20%;
     }
 
 }
@@ -252,7 +193,7 @@
 
 }
 
-@media only screen and (min-width: 3800px) {
+@media only screen and (min-width: 3830px) {
     
     .homePageContainer{
         zoom: 200.5%;

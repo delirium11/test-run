@@ -1,0 +1,22 @@
+.animatedBelt {
+    height: 50px;
+    width: 1920px;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.animatedBelt img {
+    height: 50px;
+    width: 350px;
+    animation: belt 30s infinite linear alternate;
+}
+
+@keyframes belt {
+   0% {
+    transform: translateX(-1150px);
+   } 
+   100% {
+    transform: translateX(-200px);
+   }
+}
