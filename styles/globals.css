@@ -37,7 +37,7 @@ body {
 
 .hide-scrollbars {
     overflow: hidden;
-} 
+}
 
 .loaderWrapper {
     position: fixed;
@@ -86,9 +86,11 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+   
     .loading-bar-wrapper {
         width: 40%;
     }
+    
 }
 
 @media only screen and (min-width: 2550px) {

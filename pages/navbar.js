@@ -16,7 +16,6 @@ export default function Navbar() {
     const [ balance, setBalance ] = useState(null);
     const [ signer, setSigner ] = useState(null);
     const [ status, setStatus ] = useState('CONNECT');
-    const [ visible, setVisible ] = useState(false);
 
     useEffect(() => { 
         fetchWallet(setProvider, setSigner, setAddress, setBalance, setStatus);
@@ -27,94 +26,48 @@ export default function Navbar() {
             setAddress, setBalance, setStatus, renderCount,setRenderCount);
     }
 
-    function setVisibility () {
-        setVisible(!visible);
-    }
-
     return (
-        
+
         <div className={styles.navbar}>
+            
+            <Link href="/"> <img className={styles.logo} 
+                src="/images/loading_image2.gif"/></Link>
 
-            <div>
+            <input type='checkbox' id='dropDownMenu'/>
+            
+            <label for='dropDownMenu'><FontAwesomeIcon icon={faListDots}/></label>
+
+            <nav>
+
+                <Link href="/">HOME</Link>
+
+                <Link href="/roadmap">ROADMAP</Link>
+                    
+                <Link href="/playzone">PLAYZONE</Link>
+                    
+                <Link href="/faq">FAQ</Link>
                 
-                <Link href="/">
-                    <button className={styles.logo}>LOGO</button>
-                </Link>
+                <Link href="/gallery">GALLERY</Link>
 
-            </div>
+                <div>
 
-            <div className={styles.navbarDesktop}>
+                    <a target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faTwitter}/></a>
 
-                <button><Link href="/">HOME</Link></button>
-
-                <button><Link href="/roadmap">ROADMAP</Link></button>
-                    
-                <button><Link href="/playzone">PLAYZONE</Link></button>
-                    
-                <button><Link href="/faq">FAQ</Link></button>
-                  
-                <button><Link href="/gallery">GALLERY</Link></button>
-
-                <button><a target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faTwitter}/></a></button>
-
-                <button><a target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faMedium}/></a></button>
-                        
-                <button><a target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faSailboat}/></a></button>
-
-                <button onClick={useConnectWallet}><a>{status}</a></button>
-                                    
-            </div>
-
-            <div className={styles.navbarMobile}>
-
-                <button onClick={useConnectWallet}><a>{status}</a></button>
-
-                <button onClick={setVisibility}><a>
-                    <FontAwesomeIcon icon={faListDots}/></a></button>
-
-                {visible && (
-
-                    <div className={styles.dropDownContent}>
-
-                        <button><Link href="/">HOME</Link></button>
-
-                        <button><Link href="/roadmap">ROADMAP</Link></button>
+                    <a target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faMedium}/></a>
                             
-                        <button><Link href="/playzone">PLAYZONE</Link></button>
-                            
-                        <button><Link href="/faq">FAQ</Link></button>
-                        
-                        <button><Link href="/gallery">GALLERY</Link></button>
+                    <a target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faSailboat}/></a>
 
-                        <div className={styles.dropDownSocials}>
+                </div>
 
-                            <button><a target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faTwitter}/></a></button>
+                <a onClick={useConnectWallet}>{status}</a>
 
-                            <button><a target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faMedium}/></a></button>
-                                    
-                            <button><a target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faSailboat}/></a></button>
-
-                        </div>
-
-                    </div>
-
-                )}
-
-            </div>
+            </nav>
 
         </div>
 
     )
 
 }
-
-/*
-    <button><Link href="/mint">MINT</Link></button>
-    <button><Link href="/checker">CHECKER</Link></button>
-*/

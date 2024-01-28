@@ -23,10 +23,6 @@
     src: url(../public/Small_Print.ttf);
 }
 
-.homePageContainer {
-    overflow-x: hidden;
-}
-
 .sectionOne {
     background-color: #ffebe2;
     display: flex;
@@ -35,20 +31,24 @@
     align-items: center;
     height: 500px;
     width: 1920px;
+    gap: 20px;
 }
 
 .sectionOneImage {
     height: 400px;
     width: 700px;
-    margin-right: 50px;
     border: 2px dashed black;
 }
 
 .sectionOneTextAndButtonContainer {
+    border: 2px dashed black;
+
     height: 400px;
     width: 710px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
@@ -56,6 +56,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
@@ -64,6 +65,7 @@
     width: 600px;
     font-size: 90px;
     font-family: Small_Print;
+    text-align: center;
 }
 
 .sectionOneSubTitle {
@@ -72,6 +74,7 @@
     font-size: 25px;
     font-family: georgeCafe;
     font-weight: bold;
+    text-align: center;
 }
 
 .sectionOneButton {
@@ -108,6 +111,28 @@
     gap: 30px;
 }
 
+.animatedBelt {
+    border: 2px dashed black;
+    width: 1920px;
+    height: 30px;
+    white-space: nowrap;
+}
+
+.imageBelt {
+    height: 50px;
+    width: 350px;
+    animation: belt 30s infinite linear alternate;
+}
+
+@keyframes belt {
+   0% {
+    transform: translateX(-1150px);
+   } 
+   100% {
+    transform: translateX(-200px);
+   }
+}
+
 .sectionTwo {
     background-color: #caf3ed;
     display: flex;
@@ -117,9 +142,12 @@
     margin-top: 20px;
     height: 600px;
     width: 1920px;
+    gap: 20px;
 }
 
 .sectionTwoTextContainer {
+    border: 2px dashed black;
+
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -147,6 +175,8 @@
 }
 
 .sectionTwoImage {
+    border: 2px dashed black;
+
     padding-left: 100px;
 }
 
@@ -165,10 +195,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .sectionThreeTitleAndSub {
+    border: 2px dashed black;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,6 +227,8 @@
 }
 
 .sectionThreeImage {
+    border: 2px dashed black;
+
     height: 400px;
 }
 
@@ -209,31 +243,17 @@
 }
 
 @media only screen and (min-width: 769px) {
-    .sectionOneBackgroundImage {
-        display: none;
+
+    .homePageContainer {
+        overflow-x: hidden;
     }
+    
 }
 
 @media only screen and (max-width: 768px) {
 
-    .sectionOne, .sectionTwo, 
-        .sectionThree, .sectionFour {
-        display: none;
-    }
-
-    .homePageBelt {
-        display: none;
-    }
-
     .homePageContainer {
-        height: 70vh;
-        width: 100vw;
-    }
-
-    .sectionOneBackgroundImage {
-        height: 69vh;
-        width: 100vw;
-        object-fit: fill;
+        display: none;
     }
 
 }

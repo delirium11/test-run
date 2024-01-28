@@ -1,9 +1,4 @@
 @font-face {
-    font-family: happyLucky;
-    src: url(../public/happyLuckyFree.ttf);
-}
-
-@font-face {
     font-family: Small_Print;
     src: url(../public/Small_Print.ttf);
 }
@@ -11,88 +6,91 @@
 .navbar {
     background-color: #52b6ff;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 50px 10px 200px;
+    justify-content: space-between;
+    padding: 0px 40px;
     width: 1920px;
-    height: 70px;
-    transition: 0.3s ease-in-out;
+    height: 60px;
 }
 
-.logo {
-    font-size: 50px;
-    font-family: happyLucky;
-    background: none;
-    border: 0px;
-    cursor: pointer;
-    color: #d8f4fe;
+.navbar .logo {
+    width: 90px;
+    margin-top: 3px;
 }
 
-.navbar button {
+.navbar nav a, .navbar label {
     cursor: pointer;
-    background: none;
-    border: 0px;
-    margin: 0em 1em;
-}
-
-.navbar a, .navbar link {
-    cursor: pointer;
-    transition: 0.25s;
     text-decoration: none;
     font-family: Small_Print;
-    font-weight: lighter;
-    font-size: 25px;
+    font-size: 20px;
+    margin: 0em 0.75em;
     color: white;
+    transition: 0.25s;
 }
 
-.navbar a:hover, .navbar link:hover {
+.navbar nav div {
+    display: inline-flex;
+}
+
+.navbar a:hover {
     color: #d8f4fe;
 }
 
 @media only screen and (min-width: 769px) {
-    .navbarMobile {
+
+    .navbar label, .navbar input {
         display: none;
     }
+
 }
 
 @media only screen and (max-width: 768px) {
 
-    .navbarDesktop {
-        display: none;
-    }
-
     .navbar {
-        padding: 1vh 5vw 1vh 5vw;
         width: 100vw;
         height: 7vh;
+        padding: 0px 0px 0px 10px;
     }
 
-    .logo {
-        padding-top: 1vh;
-        font-size: 40px;
-        color: white;
-    }
-
-    .navbar button {
-        margin: 0.5em 0.5em;
-    }
-
-    .dropDownContent {
-        position: absolute;
+    .navbar nav {
+        position: fixed;
         top: 7vh;
-        left: 0vw;
-        height: 93vh;
-        width: 100vw;
+        right: -150px;
+        width: 150px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(2px);
+        background-color: pink;
+        opacity: 0;
+        transition: opacity 0.25s;
     }
 
-    .dropDownSocials {
-        display: flex;
-        flex-direction: row;
+    .navbar nav a {
+        margin: 0.5em 0em;
+        font-size: 25px;
     }
 
+    .navbar nav div {
+        gap: 15px;
+    }
+
+    .navbar input {
+        display: none;
+    }
+
+    .navbar label {
+        padding: 4px 5px 3px 5px;
+        border-radius: 5px;
+        font-size: 30px;
+    }
+
+    .navbar input:checked ~ nav {
+        opacity: 1;
+        right: 0;
+    }
+
+    .navbar input:checked ~ label {
+        background-color:#219ef7;
+    }
+    
 }

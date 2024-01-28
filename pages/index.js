@@ -1,19 +1,13 @@
 import Link from 'next/link';
 import styles from '../styles/index.module.css'
-import AnimatedBelt from '../components/animatedBelt';
 
 export default function Home() {
 
     return (
 
         <div className={styles.homePageContainer}>
-
-            <img className={styles.sectionOneBackgroundImage} 
-                src="/images/indexBackground.jpg" alt="sectionTwoImage"/>
             
             <div className={styles.sectionOne}>
-
-                <div className={styles.sectionOneImage}></div>
 
                 <div className={styles.sectionOneTextAndButtonContainer}>
 
@@ -40,16 +34,31 @@ export default function Home() {
                     </div>
 
                 </div>
+
+                <div className={styles.sectionOneImage}></div>
                 
             </div>
 
-            <div className={styles.homePageBelt}>
-
-                <AnimatedBelt />
+            <div className={styles.animatedBelt}>
             
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+                <img className={styles.imageBelt} src="/images/belt.png" alt="belt" />
+
             </div>
 
             <div className={styles.sectionTwo}>
+
+                <img className={styles.sectionTwoImage} 
+                    src="/images/welcomer.png" alt="sectionTwoImage"/>
+
 
                 <div className={styles.sectionTwoTextContainer}>
 
@@ -66,9 +75,6 @@ export default function Home() {
                     </p1>
 
                 </div>
-
-                <img className={styles.sectionTwoImage} 
-                    src="/images/welcomer.png" alt="sectionTwoImage"/>
 
             </div>
             
