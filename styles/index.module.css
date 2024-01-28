@@ -1,21 +1,6 @@
 @font-face {
-    font-family: happyLucky;
-    src: url(../public/happyLuckyFree.ttf);
-}
-
-@font-face {
     font-family: georgeCafe;
     src: url(../public/georgeCafe.ttf);
-}
-
-@font-face {
-    font-family: applicationFont;
-    src: url(../public/application_font.ttf);
-}
-
-@font-face {
-    font-family: DAYSANS;
-    src: url(../public/DAYSANS.ttf);
 }
 
 @font-face {
