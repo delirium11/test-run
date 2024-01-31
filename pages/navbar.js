@@ -35,7 +35,7 @@ export default function Navbar() {
 
             <input type='checkbox' id='dropDownMenu'/>
             
-            <label for='dropDownMenu'><FontAwesomeIcon icon={faListDots}/></label>
+            <label htmlFor='dropDownMenu'><FontAwesomeIcon icon={faListDots}/></label>
 
             <nav>
 
