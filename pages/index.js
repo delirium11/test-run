@@ -15,7 +15,7 @@ export default function Home() {
                     <h1>WELCOME TO LUCKY CHARMS</h1>
 
                     <p1>
-                        We invite you to explore our World with us - 
+                        We invite you to explore our World with us 
                         dreams, adventure, and escapism await!
                     </p1>
 
