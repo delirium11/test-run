@@ -14,10 +14,10 @@ export default function Home() {
 
                     <h1>WELCOME TO LUCKY CHARMS</h1>
 
-                    <p1>
+                    <p>
                         We invite you to explore our World with us 
                         dreams, adventure, and escapism await!
-                    </p1>
+                    </p>
 
                     <nav>
 
@@ -41,13 +41,13 @@ export default function Home() {
 
                     <h1>ABOUT OUR BRAND</h1>
 
-                    <p1>
+                    <p>
                         Boki is a community-focused project centered around 
                         collaboration and connection. Each Boki grants you 
                         access to Boki's holder-only Discord channels, 
                         digital and IRL events, exclusive merch, Boki Web 3 
                         experiences and more.
-                    </p1>
+                    </p>
 
                 </div>
 
@@ -59,11 +59,11 @@ export default function Home() {
 
                     <h1>THE JOURNEY</h1>
 
-                    <p1>
+                    <p>
                         Explore Blue Cat's story and catch up on the 
                         Journey. Follow Blue and his friends across 
                         Cooltopia and contribute to the adventure along the way.
-                    </p1>
+                    </p>
 
                 </div>
 

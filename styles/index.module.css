@@ -44,7 +44,7 @@
     color: #1e191a;
 }
 
-.sectionOne div:nth-child(1) p1 {
+.sectionOne div:nth-child(1) p {
     font-family: georgeCafe;
     font-weight: bold;
     font-size: 25px;
@@ -111,7 +111,7 @@
     color: #1e191a;
 }
 
-.sectionTwo div:nth-child(2) p1 {
+.sectionTwo div:nth-child(2) p {
     font-family: georgeCafe;
     font-weight: bold;
     font-size: 25px;
@@ -138,7 +138,7 @@
     font-size: 80px;
 }
 
-.sectionThree div:nth-child(1) p1 {
+.sectionThree div:nth-child(1) p {
     font-family: georgeCafe;
     font-weight: bold;
     font-size: 30px;

@@ -2,10 +2,13 @@ import { AppContextProvider } from '@/components/renderCounter';
 import styles from '../styles/globals.css';
 import Navbar from '@/pages/navbar';
 import { useEffect, useState } from 'react';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import { initializeApp } from "firebase/app";
 
 export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
-  const [opacity, setOpacity] = useState(1); // Track opacity for fading animation
+  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     if (loading) {
