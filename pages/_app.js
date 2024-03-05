@@ -10,9 +10,45 @@ export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
   const [opacity, setOpacity] = useState(1);
 
-  var apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  const authDomain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
+  const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+  const storageBucket = process.env.NEXT_PUBLIC_STORAGE_BUCKET;
+  const messagingSenderId = process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID;
+  const appId = process.env.NEXT_PUBLIC_APP_ID;
+  const measurementId = process.env.NEXT_PUBLIC_MEASUREMENT_ID;
 
-  console.log(apiKey)
+  const firebaseConfig = {
+    apiKey,
+    authDomain,
+    projectId,
+    storageBucket,
+    messagingSenderId,
+    appId,
+    measurementId,
+  };
+
+  useEffect (() => {
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const collectionRef = db.collection('whitelist');
+    const newEntryRef = collectionRef.doc('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2')
+    newEntryRef.set({
+      walletAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+      highScore: 35743,
+      timestamp: new Date().getTime(),
+      merkleProof: []
+    })
+  }, []);
+
+  useEffect(() => {
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const docRef = db.collection('whitelist').doc('0xABCDEF1234567890ABCDEF1234567890');
+    docRef.get().then((doc) => {
+      console.log('Retreived data:', doc.data());
+    })
+  }, []);
 
   useEffect(() => {
     if (loading) {
