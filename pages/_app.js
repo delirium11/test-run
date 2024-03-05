@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
   const [opacity, setOpacity] = useState(1);
 
   const apiKey = process.env.WLMS_FIREBASE_API_KEY;
-  console.log("this is the api key" + apiKey)
+  console.log("this is the api key: " + apiKey)
 
   useEffect(() => {
     if (loading) {
