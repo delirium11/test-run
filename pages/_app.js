@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
     storageBucket,
     messagingSenderId,
     appId,
-    measurementId,
+    measurementId
   };
 
   useEffect (() => {
