@@ -10,9 +10,9 @@ export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
   const [opacity, setOpacity] = useState(1);
 
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  var apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
-  console.log("this is the api key: " + apiKey);
+  console.log(apiKey)
 
   useEffect(() => {
     if (loading) {
