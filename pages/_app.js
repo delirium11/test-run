@@ -14,28 +14,6 @@ export default function App({ Component, pageProps }) {
 
   console.log("this is the api key: " + apiKey);
 
-  useEffect (() => {
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const collectionRef = db.collection('whitelist');
-    const newEntryRef = collectionRef.doc('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2')
-    newEntryRef.set({
-      walletAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
-      highScore: 35743,
-      timestamp: new Date().getTime(),
-      merkleProof: []
-    })
-  }, []);
-
-  useEffect(() => {
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const docRef = db.collection('whitelist').doc('0xABCDEF1234567890ABCDEF1234567890');
-    docRef.get().then((doc) => {
-      console.log('Retreived data:', doc.data());
-    })
-  }, []);
-
   useEffect(() => {
     if (loading) {
       setTimeout(() => {
