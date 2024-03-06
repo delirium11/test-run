@@ -12,7 +12,7 @@ export default function Home() {
 
                 <div>
 
-                    <h1>WELCOME TO LUCKY CHARMS</h1>
+                    <h1>WELCOME TO SOMETHING ELSE</h1>
 
                     <p>
                         We invite you to explore our World with us 
